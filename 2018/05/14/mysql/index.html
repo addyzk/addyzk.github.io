@@ -1,0 +1,1149 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      mysql基础 | SorrisoYi
+    
+  </title>
+  <meta name="author" content="SorrisoYi">
+  <meta name="keywords" content>
+  <meta name="description" content="blog">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="https://addyzk.github.io/Random-img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../../css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="../../../../js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="../../../../js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode data-normal-src="../../../../index.html" data-random-max data-random-src="../../../../index.html">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="https://addyzk.github.io/Random-img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="../../../../index.html" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="../../../.././archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="../../../.././categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="../../../.././tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="../../../.././about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="../../../.././gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《mysql基础》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="../../../../index.html" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="../../../.././archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="../../../.././categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="../../../.././tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="../../../.././about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="../../../.././gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/addyzk" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://weibo.com/u/2943549915" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="../../../../plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href itemprop="url">
+		mysql基础
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href itemprop="url">
+		<time datetime="2018-05-14T13:45:14.000Z" itemprop="datePublished">
+	  		2018-05-14
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href itemprop="url">
+		<time datetime="2018-05-14T13:45:14.000Z" itemprop="dateUpdated">
+	  		2019-05-17
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="../../../../tags/数据库/" class=" ">
+			数据库
+		</a>
+	
+		
+		</span>
+		
+		
+
+	
+    <span class="leancloud_visitors" id="_visitors" data-url data-title="mysql基础">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="_likes" data-url data-title="mysql基础" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="一、数据库基本概念"><a href="#一、数据库基本概念" class="headerlink" title="一、数据库基本概念"></a>一、数据库基本概念</h2><p>数据的仓库:  </p>
+<p>数据库服务器–&gt;数据库—&gt;表–&gt;记录-&gt;属性</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="keyword">install</span> -y mysql-<span class="keyword">server</span> mysql-<span class="keyword">client</span></span><br></pre></td></tr></table></figure>
+<h2 id="二、SQL"><a href="#二、SQL" class="headerlink" title="二、SQL"></a>二、SQL</h2><p>基本可分为：</p>
+<ul>
+<li>数据定义语言DDL (create、drop）</li>
+<li>数据操作语言DML（insert、delete、update）</li>
+<li>数据查询语言DQL（select、where、group by、order by 、limit）</li>
+<li>数据控制语言DCL（grant、revoke）</li>
+<li>事务处理语言TPL（commit、rollback）</li>
+</ul>
+<h2 id="三、操作数据库"><a href="#三、操作数据库" class="headerlink" title="三、操作数据库"></a>三、操作数据库</h2><ul>
+<li><p>连接mysql数据库的命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">命令：</span><br><span class="line">    mysql -h服务器地址 -u用户名  -p  <span class="comment">#不要再p后面直接跟密码</span></span><br><span class="line">    </span><br><span class="line">如果要远程连接mysql数据库，需要以下步骤：</span><br><span class="line">1.通过mysql -u用户名  -p登录mysql数据库</span><br><span class="line">2.创建一个新用户来远程连接</span><br><span class="line">     <span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'python'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123'</span></span><br><span class="line">     <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'python'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br><span class="line">3.执行命令：<span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">4.退出mysql，到/etc/mysql/mysql.conf.d下，编辑mysqld.cnf</span><br><span class="line">	找到 “bind-address = 127.0.0.1” , 这一行要注释掉，只需在前面加个<span class="comment">#</span></span><br><span class="line">5.重启mysql服务</span><br><span class="line">  sudo service mysql restart | <span class="keyword">start</span> | <span class="keyword">stop</span>  <span class="comment">#重启、启动、停止</span></span><br><span class="line">  或者：sudo /etc/init.d/mysql restart | <span class="keyword">start</span> | <span class="keyword">stop</span></span><br><span class="line"><span class="number">6.</span>如果开启了防火墙，请添加<span class="number">3306</span>端口</span><br><span class="line">  sudo ufw <span class="keyword">allow</span> <span class="number">3306</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#忘记mysql密码：</span></span><br><span class="line"><span class="number">1.</span>到/etc/mysql/mysqld.conf.d/,编辑mysqld.conf</span><br><span class="line">sudo vim mysqld.conf</span><br><span class="line"><span class="number">2.</span>到[mysqld]下</span><br><span class="line">添加：<span class="keyword">skip</span>-<span class="keyword">grant</span>-<span class="keyword">tables</span></span><br><span class="line">保存退出</span><br><span class="line"><span class="number">3.</span>重启mysql服务：</span><br><span class="line">   sudo service mysql restart | <span class="keyword">stop</span> | <span class="keyword">start</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库操作命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.查看库</span></span><br><span class="line">   <span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment">#2. 创建库</span></span><br><span class="line">   <span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="keyword">default</span> <span class="keyword">charset</span>=utf8;<span class="comment"># 数据库名不要纯数字，不要用汉字</span></span><br><span class="line"><span class="comment">#3. 删除库</span></span><br><span class="line">   <span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</span><br><span class="line"><span class="comment">#4. 选中库</span></span><br><span class="line">   <span class="keyword">use</span> 数据库名;</span><br><span class="line"><span class="comment">#5. 查看表</span></span><br><span class="line">   <span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="comment">#6.查看数据库创建语句</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">database</span> 数据库名</span><br><span class="line"><span class="comment">#7.查看选中的数据库</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>()</span><br><span class="line"><span class="comment">#8 修改数据库字符集</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> student <span class="keyword">default</span> <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意</p>
+<ul>
+<li>每条命令结束必须使用; 或者 \g 结束</li>
+<li>退出mysql使用命令quit或exit</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、数据库表"><a href="#四、数据库表" class="headerlink" title="四、数据库表"></a>四、数据库表</h2><ul>
+<li><p>创建表</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">create table [<span class="keyword">if</span> <span class="keyword">not</span> exists] 表名(</span><br><span class="line">   列名1  类型  [限制],</span><br><span class="line">   列名2  类型  [限制],</span><br><span class="line">   <span class="built_in">..</span>.</span><br><span class="line">   列名n  类型  [限制]  #最后一列没有逗号</span><br><span class="line">) [<span class="attribute">engine</span>=myisam | innodb][<span class="built_in"> default </span><span class="attribute">charset</span>=utf8];</span><br><span class="line"></span><br><span class="line">primary key 主键 不允许有重复值,不允许为空</span><br><span class="line">auto_increment 自增长，只对int型主键起作用</span><br><span class="line"></span><br><span class="line"><span class="comment">#复合主键</span></span><br><span class="line">mysql&gt; create table grade(</span><br><span class="line">    sid int ,</span><br><span class="line">    cid int,</span><br><span class="line">    score float,</span><br><span class="line">    primary key(sid,cid));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看表结构</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc 表名<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看建表语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改表</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#修改字段类型</span><br><span class="line">   alter table 表名 modify 字段名 类型 [限制]</span><br><span class="line">#增加字段</span><br><span class="line">   alter table 表名  add [column] 字段名 类型 [限制];</span><br><span class="line">#删除字段</span><br><span class="line">   alter table 表名 drop [column] 字段名;</span><br><span class="line">修改字段名和类型</span><br><span class="line">   alter table 表名 change [column] 旧字段名 新字段名 类型 [限制];</span><br><span class="line">   </span><br><span class="line">#修改表名</span><br><span class="line">  alter table 表名 rename 新表名</span><br><span class="line">  alter table 表名 [engine=myisam] [<span class="keyword">default</span> charset=utf8];</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"> # 可以通过first、after指定插入位置</span><br><span class="line">  <span class="function">alter table student add sno <span class="title">varchar</span><span class="params">(<span class="number">3</span>)</span> <span class="keyword">not</span> null after sid</span>; <span class="comment">//在sid列后插入</span></span><br><span class="line">   alter table student add sid <span class="keyword">int</span> primary key auto_increment first;<span class="comment">//在第一列插入</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字段限制</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">primary key 不允许空值，唯一</span><br><span class="line"><span class="keyword">not</span>  <span class="literal">null</span> 非空</span><br><span class="line">unique 唯一</span><br><span class="line">default  缺省,默认值</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="五、数据类型"><a href="#五、数据类型" class="headerlink" title="五、数据类型"></a>五、数据类型</h2><ul>
+<li><p>数值型</p>
+<ul>
+<li>整型 能用整型尽量使用整型。包括int、smallint  tinyint</li>
+<li>int(3) 或者 tinyint(2) :3或者2不会去限制你所存储数据的长度 ，只有在配合zerofill 零填充的时候 才有意义</li>
+<li>浮点数  double 、decimal</li>
+</ul>
+<p>|      类型      |  大小   |        范围(有符号)         | 范围(无符号) |     用途      |<br>| :———-: | :—: | :——————–: | :—–: | :———: |<br>|   tinyint    |  1字节  |        -128-127        |  0,255  |    最小整数     |<br>|     int      |  4字节  | -2147483648-2147483647 |         |    大整数值     |<br>|  float(m,n)  | 4-8字节 |                        |         | 单精度浮点型(浮点数) |<br>| double(m,n)  |  8字节  |                        |         | 双精度浮点型(浮点数) |<br>| decimal(m,n) |  变长   |                        |         |  浮点数(更加精确)  |</p>
+</li>
+<li><p>字符型</p>
+<p>|      类型       |    大小     |     用途      |<br>| :———–: | :——-: | :———: |<br>|     char      |  0-255字节  |  存储定长的字符串   |<br>|    varchar    | 0-65535字节 |    变长字符串    |<br>|     text      | 0-65535字节 |    长文本数据    |<br>|     blob      | 0-65535字节 | 二进制的文本(不建议) |<br>| enum(‘w’,’m’) | 65535个成员  |     枚举      |<br>| set(‘w’,’m’)  |   64个成员   |     集合      |</p>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><h5 id="1-char-和-varchar-的区别"><a href="#1-char-和-varchar-的区别" class="headerlink" title="(1) char 和 varchar 的区别:"></a>(1) char 和 varchar 的区别:</h5><ul>
+<li>char的执行效率高于varchar ，varchar 相对于 char 节省存储空间</li>
+<li>如果使用char 传入的数据的长度 小于指定的长度的时候  存储的实际长度 不够的会拿空格来填充</li>
+<li>如果使用 varchar 传入的数据的长度 小于指定的长度的时候  存储的实际长度 为传进来的数据的长度</li>
+</ul>
+</li>
+<li><p>日期时间型</p>
+<p>|   类型   | 大小 |                  范围                   |        格式         |      用途      |<br>| :——: | :–: | :————————————-: | :—————–: | :————: |<br>|   date   |  3   |          1000-01-01/9999-12-31          |     YYYY-MM-DD      |     日期值     |<br>|   time   |  3   |          -838:59:59/838:59:59           |      HH:MM:SS       |     时间值     |<br>|   year   |  4   |                1901/2155                |        YYYY         |     年份值     |<br>| datetime |  8   | 1000-01-01 00:00:00/9999-12-31 23:59:59 | YYYY-MM-DD HH:MM:SS | 混合日期和时间 |<br>|          |      |          ‘2018-05-4 10:53:00’           |                     |                |</p>
+</li>
+<li><p>枚举enum</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#是自定义类型，可以多选一,实际上存的值是1，2，3...</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">user</span> <span class="keyword">add</span> sex enum(<span class="string">'男'</span>,<span class="string">'女'</span>) <span class="keyword">default</span> <span class="string">'男'</span>;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">user</span>(<span class="keyword">name</span>,<span class="keyword">password</span>,sex) </span><br><span class="line"><span class="keyword">values</span>(<span class="string">'tom'</span>,<span class="string">'132'</span>,<span class="string">'男'</span>);</span><br><span class="line"><span class="keyword">values</span>(<span class="string">'tom'</span>,<span class="string">'132'</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>集合set</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">类似复选框，可以存多个值</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student <span class="keyword">add</span> hobby <span class="keyword">set</span>(<span class="string">'看电影'</span>,<span class="string">'玩游戏'</span>,<span class="string">'敲代码'</span>,<span class="string">'烫头'</span>)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">users</span>(uid,hobby) <span class="keyword">values</span>(<span class="number">22</span>,<span class="number">1</span>+<span class="number">2</span>+<span class="number">4</span>+<span class="number">8</span>)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">users</span>(uid,hobby) <span class="keyword">values</span>(<span class="number">22</span>,<span class="number">1</span>|<span class="number">2</span>|<span class="number">4</span>|<span class="number">8</span>)</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">users</span>(uid,hobby) <span class="keyword">values</span>(<span class="number">22</span>,<span class="string">'看电影,玩游戏,敲代码'</span>) </span><br><span class="line"></span><br><span class="line"><span class="number">0001</span></span><br><span class="line"><span class="number">0010</span></span><br><span class="line"><span class="comment">-------</span></span><br><span class="line"><span class="number">0011</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>##六、数据操作</p>
+<h3 id="1-insert"><a href="#1-insert" class="headerlink" title="1. insert"></a>1. insert</h3>  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">写法一：<span class="keyword">insert</span> <span class="keyword">into</span> 表名(字段<span class="number">1</span>，字段<span class="number">2.</span>..) <span class="keyword">values</span>(值<span class="number">1</span>,值<span class="number">2.</span>..);</span><br><span class="line"></span><br><span class="line">省略了字段列表，则按照建表时的字段顺序进行插入，每一列都要给值</span><br><span class="line">写法二：<span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">values</span>(值<span class="number">1</span>,值<span class="number">2.</span>..);</span><br><span class="line">写法三：插入多个记录</span><br><span class="line">	   <span class="keyword">insert</span> <span class="keyword">into</span> 表名(字段<span class="number">1</span>，字段<span class="number">2.</span>..) </span><br><span class="line">			 <span class="keyword">values</span>(值<span class="number">1</span>,值<span class="number">2.</span>..),</span><br><span class="line">			 (值<span class="number">1</span>,值<span class="number">2.</span>..),</span><br><span class="line">			 (值<span class="number">1</span>,值<span class="number">2.</span>..)....</span><br><span class="line">写法四： <span class="keyword">insert</span> <span class="keyword">into</span> 表名(<span class="keyword">name</span>,age,sex)</span><br><span class="line">		<span class="keyword">select</span> <span class="keyword">name</span>,age,sex <span class="keyword">from</span> stars;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">insert</span> <span class="keyword">into</span> histroy_student <span class="keyword">select</span> * <span class="keyword">from</span> student;</span><br></pre></td></tr></table></figure>
+<h3 id="2-update"><a href="#2-update" class="headerlink" title="2.update"></a>2.update</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名 set 字段<span class="number">1</span>=值<span class="number">1</span>,字段<span class="number">2</span>=值<span class="number">2.</span>.. where 条件  #不加where修改的是所有的记录</span><br></pre></td></tr></table></figure>
+<h3 id="3-delete"><a href="#3-delete" class="headerlink" title="3. delete"></a>3. delete</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">删除表中的数据，自增主键的值不会重新开始</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> 条件；<span class="comment">#如果不加条件，会删除表中所有数据,慎重使用</span></span><br><span class="line"></span><br><span class="line">清空表，自增主键的值重新开始编号</span><br><span class="line"><span class="keyword">truncate</span> </span><br><span class="line">	   <span class="keyword">truncate</span> <span class="keyword">table</span> 表名,清空表中所有记录，等价于<span class="keyword">delete</span> <span class="keyword">from</span> 表名；</span><br><span class="line">	   <span class="keyword">delete</span>和<span class="keyword">truncate</span>差别，<span class="keyword">truncate</span>后，表中自增主键值从<span class="number">1</span>开始</span><br></pre></td></tr></table></figure>
+<h2 id="七、数据查询"><a href="#七、数据查询" class="headerlink" title="七、数据查询"></a>七、数据查询</h2><p>基本结构： select  字段名列表   from 表名</p>
+<h3 id="1-基础查询"><a href="#1-基础查询" class="headerlink" title="1 基础查询"></a>1 基础查询</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select username,password  <span class="keyword">from</span> user;</span><br><span class="line">select usernname as 用户名, password as 密码  <span class="keyword">from</span><span class="built_in"> user; </span> #可以给字段起别名</span><br><span class="line">select *  <span class="keyword">from</span><span class="built_in"> user; </span>#查询所有字段，慎用，一般不建议使用，会导致无法优化sql语句</span><br><span class="line">select 2018,username,password  <span class="keyword">from</span><span class="built_in"> user; </span>#可以有常量，表达式</span><br><span class="line">select sname,2018-year(sbirthday) <span class="keyword">from</span> student; #year是mysql的内置函数</span><br><span class="line">select distinct username  <span class="keyword">from</span> <span class="built_in"> user; </span>#去除重复记录 distinct 针对查询结果去除重复记录，不针对字段</span><br></pre></td></tr></table></figure>
+<p>###2 条件查询（where） </p>
+<ul>
+<li><p>关系运算</p>
+<p>关系运算符：&gt; 、 &gt;=、  &lt;、  &lt;=、  =、!=、&lt;&gt;、 between and</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid &lt;10</span><br><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid != 10</span><br><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid between 10 <span class="keyword">and</span> 20</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>逻辑运算</p>
+<p>逻辑运算符：and 、or、not</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid &lt; 100 <span class="keyword">and</span> uid &gt; 20;</span><br><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid &gt; 100 <span class="keyword">or</span> uid &lt; 20;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>集合运算</p>
+<p>集合运算符：in、not in</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select username,password form<span class="built_in"> user </span>where uid <span class="keyword">in</span> (2,3,4)</span><br><span class="line">select username,password form<span class="built_in"> user </span>where uid <span class="keyword">not</span> <span class="keyword">in</span> (2,3,4)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判空</p>
+<p>判空运算：is  null、is not  null</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where username is <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串的模糊查询(like)</p>
+<p>通配符 _代表一个字符，%代表任意长度字符串</p>
+<pre><code>select * from user where username like &apos;王_&apos;;
+select * from user where username like &apos;王%&apos;;
+</code></pre></li>
+</ul>
+<h3 id="3-排序（order-by）"><a href="#3-排序（order-by）" class="headerlink" title="3. 排序（order by）"></a>3. 排序（order by）</h3><p> asc 升序(默认)、desc  降序、</p>
+<pre><code>select * from user order by age asc;
+select * from user order by age desc;
+多字段排序
+       select name,age from php_user_history  order by age desc,name;# 如果在第一列上有相同的值，在具有相同的age的记录上再按name升序排列
+</code></pre><h3 id="4-限制结果集-limit"><a href="#4-限制结果集-limit" class="headerlink" title="4.限制结果集(limit)"></a>4.限制结果集(limit)</h3><p>limit n    #取前n条记录</p>
+<p>limit  offset,n #从第offset条开始取，取n条</p>
+<pre><code>select * from php_user_history limit 3;
+select * from php_user_history limit 4,2;
+注意结果集中记录从0开始数数，offset相对于0开始
+实现分页必须的技术点
+limit (page-1)*num,num
+</code></pre><h3 id="5-集合函数"><a href="#5-集合函数" class="headerlink" title="5.集合函数"></a>5.集合函数</h3><ul>
+<li>count统计结果集中记录数</li>
+<li>max 最大值</li>
+<li>min  最小值</li>
+<li>avg   平均值，只针对数值类型统计</li>
+<li>sum 求和，只针对数值类型统计</li>
+<li><p>注意，集合函数不能直接使用在where后面的条件里，但可以在子查询中</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">num</span> <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> age) <span class="keyword">num</span> <span class="keyword">from</span> <span class="keyword">user</span>; //去除重复记录</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> sno = <span class="keyword">max</span>(sno);//错误</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="6-分组（group-by"><a href="#6-分组（group-by" class="headerlink" title="6.分组（group by)"></a>6.分组（group by)</h3><p>将结果集分组统计，规则：</p>
+<ul>
+<li>出现了groub by的查询语句，select后面的字段只能是集合函数和group by后面有的字段，不要跟其它字段</li>
+<li>对分组进行过滤，可以使用having</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select uid, count(*) num <span class="keyword">from</span> php_forum<span class="built_in"> group </span>by uid;</span><br><span class="line">select uid,title, count(*) num <span class="keyword">from</span> forum<span class="built_in"> group </span>by uid having count(*) &gt;=2;</span><br><span class="line">having和where的区别：</span><br><span class="line">    where针对原始表进行过滤</span><br><span class="line">    having 是针对分组进行过滤</span><br></pre></td></tr></table></figure>
+<h3 id="查询小结"><a href="#查询小结" class="headerlink" title="查询小结"></a>查询小结</h3><ul>
+<li>整体顺序不能颠倒</li>
+<li><p>[]表示可选，可以有也可以没有</p>
+<p> select 字段<br>  from 表名<br>   [where 条件]<br>   [group by ]<br>   [having]<br>   [order by ]<br>   [limit]     </p>
+</li>
+</ul>
+<h2 id="八-字符集和存储引擎"><a href="#八-字符集和存储引擎" class="headerlink" title="八 字符集和存储引擎"></a>八 字符集和存储引擎</h2><ul>
+<li>修改字符集</li>
+</ul>
+<p>为了能够正常显示中文，必须把数据库的字符集设置为utf8.</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like <span class="emphasis">'character%'</span>;  #查看字符集</span><br><span class="line"><span class="code">+--------------------------+</span>----------------------------+</span><br><span class="line">| Variable<span class="emphasis">_name            | Value                      |</span></span><br><span class="line"><span class="emphasis">+--------------------------+----------------------------+</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_client     | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_connection | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_database   | latin1                     |需要修改</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_filesystem | binary                     |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_results    | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_server     | latin1                     |需要修改</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_system     | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>sets<span class="emphasis">_dir       | /usr/share/mysql/charsets/ |</span></span><br><span class="line"><span class="emphasis">+--------------------------+----------------------------+</span></span><br><span class="line"><span class="emphasis">8 rows in set (0.01 sec)</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">修改mysql的配置文件</span></span><br><span class="line"><span class="emphasis">cd /etc/mysql/mysql.conf.d</span></span><br><span class="line"><span class="emphasis">sudo cp mysql.cnf  mysql.cnf.bak</span></span><br><span class="line"><span class="emphasis">sudo vim mysql.cnf</span></span><br><span class="line"><span class="emphasis">在[mysqld]下增加一句：</span></span><br><span class="line"><span class="emphasis">character_</span>set<span class="emphasis">_server = utf8</span></span><br><span class="line"><span class="emphasis">保存并重启服务</span></span><br><span class="line"><span class="emphasis">sudo systemctl restart mysql.service  #重启服务</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据库引擎<ul>
+<li>常用的数据库引擎：myisam、innodb、archive、ndb、memory </li>
+<li>myisam和innodb的区别<ul>
+<li>myisam查询速度快，不支持事务、不支持外键、支持表锁</li>
+<li>innodb增删改效率高，支持事务、支持外键，支持行锁</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="https://addyzk.github.io/Random-img/13.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="../../../08/29/网络编程/" title="网络编程" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../12/redis/" title="redis" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2019/05/17/mysql高级/" title="mysql高级">
+								mysql高级			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								#mysql数据库
+一、高级1.1 子查询
+子查询嵌入到其他查询语句中查询语句，子查询只能出现在from，where中
+子查询不要用select *,exists除外
+
+12345678910select title from for...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2019/05/17/mysql高级/" title="mysql高级">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/15.jpg" alt="mysql高级">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../12/redis/" title="redis">
+								redis			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 12日, 2018				
+							</p>
+							<p class="relate-post-content">
+								redis教程：概述redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，即可以将数据持久化，并且他比memcached支持更多的数据结构(string,list列表[队列和...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../12/redis/" title="redis">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/10.jpg" alt="redis">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2019/05/17/my/" title="my">
+								my			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								当赤道划过雪花，你在哪里？
+
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2019/05/17/my/" title="my">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/44.jpg" alt="my">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2019/05/16/hello-world/" title="Hello my friend!">
+								Hello my friend!			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 16日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Welcome to my blog ! This is your very first post. Check documentation for more info. If you get any problems when us...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2019/05/16/hello-world/" title="Hello my friend!">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/2.jpg" alt="Hello my friend!">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../08/29/网络编程/" title="网络编程">
+								网络编程			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 29日, 2018				
+							</p>
+							<p class="relate-post-content">
+								计算机之间的通信，三次握手，四次挥手！TCP/UDP协议！
+17 网络编程一、网络编程1.网络编程基础
+计算机网络：把分布在不同区域的计算机通过专门的设备使用通信线路连接起来，从而会形成一个庞大的网络系统，不同的计算机之间就可以进行信...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../08/29/网络编程/" title="网络编程">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/1.jpg" alt="网络编程">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../04/23/git/" title="Git!">
+								Git!			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2018				
+							</p>
+							<p class="relate-post-content">
+								Git 的基本认识，常用命令，以及使用流程，冲突管理分支管理等。
+Git1.git简介1234- workspace 工作区- index 暂存区- repository 本地版本库- remote 远程仓库
+2.常用git命令1所有...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../04/23/git/" title="Git!">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/47.jpg" alt="Git!">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2017/05/17/nginx、pyenv配置/" title="nginx、pyenv配置">
+								nginx、pyenv配置			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 17日, 2017				
+							</p>
+							<p class="relate-post-content">
+								一、开机启动可以设置开机启动有两个地方：第一，在/etc/init.d目录下，可以将服务放到这个目录下。第二是在/etc/init.d下的rc.local，可以将需要开机启动的程序写入这个文件。可以使用sysv-rc-conf命令进行...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2017/05/17/nginx、pyenv配置/" title="nginx、pyenv配置">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/21.jpg" alt="nginx、pyenv配置">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2017/04/27/项目部署/" title="项目部署">
+								项目部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 27日, 2017				
+							</p>
+							<p class="relate-post-content">
+								一、项目部署基本流程1234567891011- 虚拟环境- 数据库- 项目上传- 项目依赖- 数据迁移- Nginx- uWSGI- Nginx和uWSGI对接
+二、虚拟环境12345678910111213141516171819...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2017/04/27/项目部署/" title="项目部署">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/99.jpg" alt="项目部署">
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+
+			<!-- addThis share -->
+			<!-- www.addthis.com/dashboard -->
+
+	<div class="addthis_inline_share_toolbox">
+	</div>
+
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-xxx" async="async"></script>
+
+
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'bdanoXQN5zgeVyspG5e9RF7o-gzGzoHsz',
+            appkey = 'RVVmwDan5FhjuwkKxenjOGSE';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="../../../../plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="../../../../plugin/fancybox/jquery.fancybox.css">
+<script src="../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/addyzk" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://weibo.com/u/2943549915" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by SorrisoYi. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="../../../../plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup">
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+
+   
+	<div id="topN">
+		<div class="topN-title" data-title="热门文章"></div> 
+	</div>
+	
+    <script>
+        var appid = 'bdanoXQN5zgeVyspG5e9RF7o-gzGzoHsz',
+            appkey = 'RVVmwDan5FhjuwkKxenjOGSE',
+            limitCount = 10;
+        if( $('#topN').length ){
+            AV.initialize(appid, appkey);
+            var Counter = AV.Object.extend("Counter");  
+            topNPost(Counter, limitCount);
+        }
+    </script>
+   
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/SorrisiYi/search.zip',
+		version_Path = '/SorrisiYi/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+<!-- love effect -->
+
+	<script src="../../../../plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<script src="../../../../plugin/vibrant/vibrant.js"></script>
+<script src="../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../plugin/imgLazyLoader/yall.min.js"></script>
+<script src="../../../../plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../js/resizediv.js"></script>
+<script src="../../../../js/main.js"></script>
+	</body>	
+</html>
