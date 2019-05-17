@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      my | SorrisoYi
+      mysql优化 | SorrisoYi
     
   </title>
   <meta name="author" content="SorrisoYi">
@@ -164,7 +164,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《my》
+			当前文章&nbsp;:&nbsp;《mysql优化》
 		
 	</p>
 
@@ -266,6 +266,18 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="../../../../plugin/toc/katelog.min.js"></script>
+
+		
 	 
 
 <div class="layout-post">
@@ -274,7 +286,7 @@
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
 	<a href itemprop="url">
-		my
+		mysql优化
 	</a>
 
 	</div>
@@ -288,7 +300,7 @@
 	发布于
 
 	<a href itemprop="url">
-		<time datetime="2019-05-17T06:50:15.000Z" itemprop="datePublished">
+		<time datetime="2019-05-17T13:27:03.000Z" itemprop="datePublished">
 	  		2019-05-17
 	  </time>
 	</a>
@@ -306,7 +318,7 @@
 	更新于
 
 	<a href itemprop="url">
-		<time datetime="2019-05-17T06:50:15.000Z" itemprop="dateUpdated">
+		<time datetime="2019-05-17T13:27:03.000Z" itemprop="dateUpdated">
 	  		2019-05-17
 	  </time>
 	</a> 
@@ -318,8 +330,8 @@
 			<i class="fa fa-tags"></i>
 			
 	
-		<a href="../../../../tags/随笔/" class=" ">
-			随笔
+		<a href="../../../../tags/数据库/" class=" ">
+			数据库
 		</a>
 	
 		
@@ -328,7 +340,7 @@
 		
 
 	
-    <span class="leancloud_visitors" id="_visitors" data-url data-title="my">
+    <span class="leancloud_visitors" id="_visitors" data-url data-title="mysql优化">
        	<i class="fa fa-eye"></i>
        	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
@@ -338,7 +350,7 @@
 
 
 	
-    <span class="leancloud_likes" id="_likes" data-url data-title="my" rel="unlike">
+    <span class="leancloud_likes" id="_likes" data-url data-title="mysql优化" rel="unlike">
         <i class="fa fa-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -347,11 +359,212 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<p>当赤道划过雪花，你在哪里？</p>
-	
+		<h1 id="mysql优化"><a href="#mysql优化" class="headerlink" title="mysql优化"></a>mysql优化</h1><h2 id="一、数据库设计原则"><a href="#一、数据库设计原则" class="headerlink" title="一、数据库设计原则"></a>一、数据库设计原则</h2><h3 id="数据库设计的三范式"><a href="#数据库设计的三范式" class="headerlink" title="数据库设计的三范式"></a>数据库设计的三范式</h3><p>学生表(学号，姓名，生日，课程名，课程成绩，等级，学院，院长)</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th style="text-align:left">生日</th>
+<th>课程号</th>
+<th>课程名</th>
+<th>成绩</th>
+<th>等级</th>
+<th>学院</th>
+<th>院长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10001</td>
+<td>张三</td>
+<td style="text-align:left">1998.1.1</td>
+<td>tp3021,h333</td>
+<td>计算机原理，高等数学</td>
+<td>87，90</td>
+<td>B,A</td>
+<td>计算机学院</td>
+<td>xxx</td>
+</tr>
+</tbody>
+</table>
+<p>第一范式  表中每一个属性不可再分，不允许出现表中套表的情况</p>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>生日</th>
+<th>课程号</th>
+<th>成绩</th>
+<th>等级</th>
+<th>学院</th>
+<th>院长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10001</td>
+<td>张三</td>
+<td>1998.1.1</td>
+<td>tp3021</td>
+<td>87</td>
+<td>B</td>
+<td>计算机学院</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>张三</td>
+<td>1998.1.1</td>
+<td>h333</td>
+<td>90</td>
+<td>A</td>
+<td>计算机学院</td>
+<td>xxx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>课程号</th>
+<th>课程名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tp3201</td>
+<td>计算机原理</td>
+</tr>
+<tr>
+<td>h333</td>
+<td>高等数学</td>
+</tr>
+</tbody>
+</table>
+<p>第二范式  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">键/码   区分不同记录，可以一个属性或者多个属性的组合，主键是指定的键</span><br><span class="line">每一个非主属性（不保含在任何一个键里的属性）必须完全依赖于主键（不存在非主属性部分依赖于码）</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>姓名</th>
+<th>生日</th>
+<th>学院编号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>学院编号</th>
+<th>学院</th>
+<th>院长</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>课程号</th>
+<th>成绩</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>第三范式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第三范式： 不存在非主属性传递依赖于主码</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>学号</th>
+<th>课程号</th>
+<th>成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>等级编号</th>
+<th>up</th>
+<th>down</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>100</td>
+<td>90</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>89</td>
+<td>80</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<p>反范式设计</p>
+<ul>
+<li>如果考虑查询性能，应该尽量减少表的关联</li>
+<li>将经常查询的数据都放到一个表里，尽量少采用字典表</li>
+</ul>
+<h3 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h3><ul>
+<li><p>尽量选用长度小的类型</p>
+</li>
+<li><p>能选用整型，不要选用字符串</p>
+</li>
+<li><p>日期型能用date就不要使用datetime，不准用字符串存储日期</p>
+</li>
+<li><p>字段不要设置默认值null</p>
+</li>
+<li><p>主键一般无意义，用整型，自增</p>
+</li>
+</ul>
+<h2 id="二、sql语句的优化"><a href="#二、sql语句的优化" class="headerlink" title="二、sql语句的优化"></a>二、sql语句的优化</h2><p>1.开启慢查询</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在mysql下查询</span><br><span class="line">mysql&gt; show VARIABLES like <span class="emphasis">'%slow%'</span>;</span><br><span class="line"><span class="code">+---------------------------+</span>--------------------------------+</span><br><span class="line">| Variable<span class="emphasis">_name             | Value                          |</span></span><br><span class="line"><span class="emphasis">+---------------------------+--------------------------------+</span></span><br><span class="line"><span class="emphasis">| log_</span>slow<span class="emphasis">_admin_</span>statements | OFF                            |</span><br><span class="line">| log<span class="emphasis">_slow_</span>slave<span class="emphasis">_statements | OFF                            |</span></span><br><span class="line"><span class="emphasis">| slow_</span>launch<span class="emphasis">_time          | 2                              |慢查询的阈值，超过这个值认为是慢查询</span></span><br><span class="line"><span class="emphasis">| slow_</span>query<span class="emphasis">_log            | OFF                            |慢查询是关闭的</span></span><br><span class="line"><span class="emphasis">| slow_</span>query<span class="emphasis">_log_</span>file       | /var/lib/mysql/ubuntu-slow.log |慢查询日志文件路径</span><br><span class="line"><span class="code">+---------------------------+</span>--------------------------------+</span><br><span class="line">5 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"></span><br><span class="line">#在[mysqld]后面增加</span><br><span class="line">long<span class="emphasis">_query_</span>time = 1   #超过1秒钟的sql记录下来</span><br><span class="line">log-slow-queries = /var/mysql/log/log.txt  #慢查询的日志文件</span><br><span class="line">log-queries-no-using-indexes   #把没使用索引的查询记录下来</span><br></pre></td></tr></table></figure>
+<p>2 使用explain/desc分析sql语句</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">explain  select <span class="string">...</span>    <span class="comment">#分析sql语句，sql语句本身并不执行</span></span><br><span class="line">explain select name ,age from user where age &gt;10</span><br><span class="line">    -&gt; ;</span><br><span class="line">+<span class="params">----</span>+<span class="params">-------------</span>+<span class="params">-------</span>+<span class="params">-------</span>+<span class="params">---------------</span>+<span class="params">-----------</span>+<span class="params">---------</span>+<span class="params">------</span>+<span class="params">------</span>+<span class="params">-------------</span>+</span><br><span class="line">| id | select_type | table | type  | possible_keys | key       | key_len | ref  | rows | Extra       |</span><br><span class="line">+<span class="params">----</span>+<span class="params">-------------</span>+<span class="params">-------</span>+<span class="params">-------</span>+<span class="params">---------------</span>+<span class="params">-----------</span>+<span class="params">---------</span>+<span class="params">------</span>+<span class="params">------</span>+<span class="params">-------------</span>+</span><br><span class="line">|  1 | SIMPLE      | user  | range | index_age     | index_age | 2       | NULL |    2 | Using where |</span><br><span class="line">+<span class="params">----</span>+<span class="params">-------------</span>+<span class="params">-------</span>+<span class="params">-------</span>+<span class="params">---------------</span>+<span class="params">-----------</span>+<span class="params">---------</span>+<span class="params">------</span>+<span class="params">------</span>+<span class="params">-------------</span>+</span><br><span class="line">1 row in <span class="keyword">set</span> <span class="params">(0.00 sec)</span></span><br><span class="line">select_type  :  查询的类型  </span><br><span class="line">              simple 指单表查询（不使用连接、子查询）</span><br><span class="line">              primary： 主查询</span><br><span class="line">              union  联合查询的第二个sql语句，或后面的查询</span><br><span class="line">              subquery  子查询</span><br><span class="line">table   表名</span><br><span class="line">type    查询方式：</span><br><span class="line">	all</span><br><span class="line">		全表扫描，对于数据表从头到尾找一遍</span><br><span class="line">		如果有limit限制，则找到之后就不在继续向下扫描</span><br><span class="line">			select * from tb1 where email = 'seven@live.com'</span><br><span class="line">			select * from tb1 where email = 'seven@live.com' limit 1;</span><br><span class="line">				找到一个后就不再继续扫描</span><br><span class="line">	index</span><br><span class="line">		全索引扫描，对索引从头到尾找一遍</span><br><span class="line">			select id from student;</span><br><span class="line">	range</span><br><span class="line">		对索引列进行范围查找</span><br><span class="line">	index_merge</span><br><span class="line">		合并索引，使用多个单列索引搜索</span><br><span class="line">	ref_or_null</span><br><span class="line">	ref</span><br><span class="line">		根据索引查找一个或多个值</span><br><span class="line">	eq_ref</span><br><span class="line">		连接时使用primary key 或 unique类型</span><br><span class="line">	const</span><br><span class="line">		常量</span><br><span class="line">		表最多有一个匹配行,因为仅有一行,在这行的列值可被优化器剩余部分认为是常数,const表很快,</span><br><span class="line">		因为它们只读取一次</span><br><span class="line">	system</span><br><span class="line">		系统，表仅有一行<span class="params">(=系统表)</span>。这是const联接类型的一个特例</span><br><span class="line">	性能</span><br><span class="line">		all &lt; index &lt; range &lt; index_merge &lt; ref_or_null &lt; ref &lt; eq_ref &lt; system/const</span><br><span class="line"> possible_keys  可能被用到的索引</span><br><span class="line"> key             使用的索引</span><br><span class="line"> key_len         索引字段最大使用长度</span><br><span class="line"> rows            影响的行数，越小越好</span><br><span class="line"> </span><br><span class="line"> 关注：type 、key、rows</span><br></pre></td></tr></table></figure>
+<p>3 优化sql语句</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">1 查询的时候不要使用select *</span><br><span class="line">2.尽量使用limit 1 取得唯一的一行</span><br><span class="line">3.尽量使用索引字段进行查询</span><br><span class="line">4 可以使用覆盖索引加速查询  （一个索引包含了查询结果中所有的字段）</span><br><span class="line">5 尽量少用like 或者<span class="keyword">or</span></span><br><span class="line">6 不要使用全文索引，如果非要使用可以把全文索引独立出来，建立全文索引服务器</span><br><span class="line">7 关联查询的时候，关联的字段都应该有索引</span><br><span class="line">8 不要使用!=操作，不使用索引</span><br><span class="line">9 查询的时候类型不匹配不使用索引</span><br><span class="line">10 联合索引不带左前缀，不使用索引</span><br><span class="line">11 尽量减少子查询，可以使用关联查询代替子查询</span><br><span class="line">    select count(*) <span class="keyword">from</span> article where uid <span class="keyword">in</span>(select uid <span class="keyword">from</span><span class="built_in"> user </span>where <span class="attribute">id</span>=10)</span><br><span class="line">    select count(*) <span class="keyword">from</span> aticle,user where user.id = aticle.uid   <span class="keyword">and</span> user.<span class="attribute">id</span>=10</span><br><span class="line">    select count(*) <span class="keyword">from</span> aticle join<span class="built_in"> user </span>on user.<span class="attribute">id</span>=article.uid  where userid.<span class="attribute">id</span>=10</span><br><span class="line">12 尽量多试验不同sql语句，比较他们的效率，采用最少</span><br><span class="line">13 不要在where中，运算符左边运算,只要是计算，不采用索引</span><br><span class="line">    select username <span class="keyword">from</span><span class="built_in"> user </span>where age/2&gt;10</span><br><span class="line">14 不要在where中，运算符左边不要出现任何函数,否则不采用索引</span><br><span class="line">   select COUNT(*) <span class="keyword">from</span><span class="built_in"> user </span>where year(birthday) == 1993;</span><br><span class="line">15 不要对<span class="literal">null</span>判断 ，否则不使用索引</span><br><span class="line">16 避免默认排序</span><br><span class="line">    select cid,count(*) <span class="keyword">from</span> bbs<span class="built_in"> group </span>by cid</span><br><span class="line">    select cid,count(*) <span class="keyword">from</span> bbs<span class="built_in"> group </span>by cid order by <span class="literal">null</span> #不排序</span><br></pre></td></tr></table></figure>
+<p>4 其他优化措施</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在应用层面可以nosql技术，把数据保存redius、memcached中加速查询</span><br><span class="line">从架构方面：读写分离</span><br><span class="line">可以使用mysql分区技术，把一个表分为多个文件</span><br><span class="line">分库分表分机器</span><br><span class="line">把表进行垂直切分，或水平切分</span><br></pre></td></tr></table></figure>
+<p>数据库设计 ====》索引 ===》SQL语句优化 ===》分区=》nosql缓存 ==》读写分离=》分库分表分机器（数据库中间件）=》表的垂直/水平切分</p>
+<h2 id="其他技术"><a href="#其他技术" class="headerlink" title="其他技术"></a>其他技术</h2><h3 id="1-存储过程"><a href="#1-存储过程" class="headerlink" title="1. 存储过程"></a>1. 存储过程</h3><h3 id="2-触发器"><a href="#2-触发器" class="headerlink" title="2. 触发器"></a>2. 触发器</h3><h3 id="3-数据分区"><a href="#3-数据分区" class="headerlink" title="3. 数据分区"></a>3. 数据分区</h3><h3 id="4-读写分离"><a href="#4-读写分离" class="headerlink" title="4. 读写分离"></a>4. 读写分离</h3><h3 id="5-主从复制"><a href="#5-主从复制" class="headerlink" title="5. 主从复制"></a>5. 主从复制</h3>	
 	</div>
 	
-	<div id="current-post-cover" data-scr="https://addyzk.github.io/Random-img/44.jpg"></div>
+	<div id="current-post-cover" data-scr="https://addyzk.github.io/Random-img/16.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -366,12 +579,8 @@
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="../sql优化/" title="mysql优化" rel="prev">
-				&laquo;上一篇
-			</a>
 		
-		
-			<a href="../../16/hello-world/" title="Hello my friend!" rel="next">
+			<a href="../my/" title="my" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -392,42 +601,46 @@
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="../sql优化/" title="mysql优化">
-								mysql优化			
+							<a class="relate-post-title" href="../../../../2018/05/12/redis/" title="redis">
+								redis			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 12日, 2018				
+							</p>
+							<p class="relate-post-content">
+								redis教程：概述redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，即可以将数据持久化，并且他比memcached支持更多的数据结构(string,list列表[队列和...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2018/05/12/redis/" title="redis">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/10.jpg" alt="redis">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../my/" title="my">
+								my			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
 								五月 17日, 2019				
 							</p>
 							<p class="relate-post-content">
-								mysql优化一、数据库设计原则数据库设计的三范式学生表(学号，姓名，生日，课程名，课程成绩，等级，学院，院长)
+								当赤道划过雪花，你在哪里？
 
-
-
-学号
-姓名
-生日
-课程号
-课程名
-成绩
-等级
-学院
-院长
-
-
-
-
-10001
-张三
-1998.1.1
-tp3021...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="../sql优化/" title="mysql优化">				
+							<a href="../my/" title="my">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/16.jpg" alt="mysql优化">
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/44.jpg" alt="my">
 							</a>
 						</div>
 					</li>											
@@ -500,29 +713,6 @@ tp3021...
 							<a href="../../../../2018/08/29/网络编程/" title="网络编程">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/1.jpg" alt="网络编程">
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../2018/05/12/redis/" title="redis">
-								redis			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 12日, 2018				
-							</p>
-							<p class="relate-post-content">
-								redis教程：概述redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，即可以将数据持久化，并且他比memcached支持更多的数据结构(string,list列表[队列和...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../2018/05/12/redis/" title="redis">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/10.jpg" alt="redis">
 							</a>
 						</div>
 					</li>											

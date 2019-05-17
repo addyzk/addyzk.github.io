@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      mysql基础 | SorrisoYi
+       | SorrisoYi
     
   </title>
   <meta name="author" content="SorrisoYi">
@@ -164,7 +164,7 @@
 	<!-- Page title -->
 	<p>
 		
-			当前文章&nbsp;:&nbsp;《mysql基础》
+			当前文章&nbsp;:&nbsp;《》
 		
 	</p>
 
@@ -285,10 +285,6 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href itemprop="url">
-		mysql基础
-	</a>
-
 	</div>
 
 	<div class="article-meta">
@@ -300,8 +296,8 @@
 	发布于
 
 	<a href itemprop="url">
-		<time datetime="2018-05-14T13:45:14.000Z" itemprop="datePublished">
-	  		2018-05-14
+		<time datetime="2019-01-22T08:30:43.639Z" itemprop="datePublished">
+	  		2019-01-22
 	  </time>
 	</a>
 	&nbsp;
@@ -318,7 +314,7 @@
 	更新于
 
 	<a href itemprop="url">
-		<time datetime="2018-05-14T13:45:14.000Z" itemprop="dateUpdated">
+		<time datetime="2019-01-22T08:30:43.639Z" itemprop="dateUpdated">
 	  		2019-05-17
 	  </time>
 	</a> 
@@ -328,19 +324,13 @@
 		</span>
 		<span>
 			<i class="fa fa-tags"></i>
-			
-	
-		<a href="../../../../tags/数据库/" class=" ">
-			数据库
-		</a>
-	
-		
+					
 		</span>
 		
 		
 
 	
-    <span class="leancloud_visitors" id="_visitors" data-url data-title="mysql基础">
+    <span class="leancloud_visitors" id="_visitors" data-url data-title>
        	<i class="fa fa-eye"></i>
        	热度
         <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
@@ -350,7 +340,7 @@
 
 
 	
-    <span class="leancloud_likes" id="_likes" data-url data-title="mysql基础" rel="unlike">
+    <span class="leancloud_likes" id="_likes" data-url data-title rel="unlike">
         <i class="fa fa-heart"></i>
         喜欢
         <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
@@ -359,7 +349,8 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="一、数据库基本概念"><a href="#一、数据库基本概念" class="headerlink" title="一、数据库基本概念"></a>一、数据库基本概念</h2><p>数据的仓库:  </p>
+		<p>title: mysql基础<br>cover: <a href="https://addyzk.github.io/Random-img/13.jpg">https://addyzk.github.io/Random-img/13.jpg</a><br>categories: 数据库<br>tags: 数据库<br>date: 2018-05-14 21:45:14</p>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="一、数据库基本概念"><a href="#一、数据库基本概念" class="headerlink" title="一、数据库基本概念"></a>一、数据库基本概念</h2><p>数据的仓库:  </p>
 <p>数据库服务器–&gt;数据库—&gt;表–&gt;记录-&gt;属性</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get <span class="keyword">install</span> -y mysql-<span class="keyword">server</span> mysql-<span class="keyword">client</span></span><br></pre></td></tr></table></figure>
 <h2 id="二、SQL"><a href="#二、SQL" class="headerlink" title="二、SQL"></a>二、SQL</h2><p>基本可分为：</p>
@@ -370,57 +361,129 @@
 <li>数据控制语言DCL（grant、revoke）</li>
 <li>事务处理语言TPL（commit、rollback）</li>
 </ul>
-<h2 id="三、操作数据库"><a href="#三、操作数据库" class="headerlink" title="三、操作数据库"></a>三、操作数据库</h2><ul>
-<li><p>连接mysql数据库的命令</p>
+<h2 id="三、操作数据库"><a href="#三、操作数据库" class="headerlink" title="三、操作数据库"></a>三、操作数据库</h2><p>连接mysql数据库的命令</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">命令：</span><br><span class="line">    mysql -h服务器地址 -u用户名  -p  <span class="comment">#不要再p后面直接跟密码</span></span><br><span class="line">    </span><br><span class="line">如果要远程连接mysql数据库，需要以下步骤：</span><br><span class="line">1.通过mysql -u用户名  -p登录mysql数据库</span><br><span class="line">2.创建一个新用户来远程连接</span><br><span class="line">     <span class="keyword">create</span> <span class="keyword">user</span> <span class="string">'python'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123'</span></span><br><span class="line">     <span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'python'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'123'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br><span class="line">3.执行命令：<span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">4.退出mysql，到/etc/mysql/mysql.conf.d下，编辑mysqld.cnf</span><br><span class="line">	找到 “bind-address = 127.0.0.1” , 这一行要注释掉，只需在前面加个<span class="comment">#</span></span><br><span class="line">5.重启mysql服务</span><br><span class="line">  sudo service mysql restart | <span class="keyword">start</span> | <span class="keyword">stop</span>  <span class="comment">#重启、启动、停止</span></span><br><span class="line">  或者：sudo /etc/init.d/mysql restart | <span class="keyword">start</span> | <span class="keyword">stop</span></span><br><span class="line"><span class="number">6.</span>如果开启了防火墙，请添加<span class="number">3306</span>端口</span><br><span class="line">  sudo ufw <span class="keyword">allow</span> <span class="number">3306</span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#忘记mysql密码：</span></span><br><span class="line"><span class="number">1.</span>到/etc/mysql/mysqld.conf.d/,编辑mysqld.conf</span><br><span class="line">sudo vim mysqld.conf</span><br><span class="line"><span class="number">2.</span>到[mysqld]下</span><br><span class="line">添加：<span class="keyword">skip</span>-<span class="keyword">grant</span>-<span class="keyword">tables</span></span><br><span class="line">保存退出</span><br><span class="line"><span class="number">3.</span>重启mysql服务：</span><br><span class="line">   sudo service mysql restart | <span class="keyword">stop</span> | <span class="keyword">start</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数据库操作命令</p>
+<p>数据库操作命令</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.查看库</span></span><br><span class="line">   <span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment">#2. 创建库</span></span><br><span class="line">   <span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="keyword">default</span> <span class="keyword">charset</span>=utf8;<span class="comment"># 数据库名不要纯数字，不要用汉字</span></span><br><span class="line"><span class="comment">#3. 删除库</span></span><br><span class="line">   <span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</span><br><span class="line"><span class="comment">#4. 选中库</span></span><br><span class="line">   <span class="keyword">use</span> 数据库名;</span><br><span class="line"><span class="comment">#5. 查看表</span></span><br><span class="line">   <span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="comment">#6.查看数据库创建语句</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">database</span> 数据库名</span><br><span class="line"><span class="comment">#7.查看选中的数据库</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>()</span><br><span class="line"><span class="comment">#8 修改数据库字符集</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">database</span> student <span class="keyword">default</span> <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意</p>
+<p>注意</p>
 <ul>
 <li>每条命令结束必须使用; 或者 \g 结束</li>
 <li>退出mysql使用命令quit或exit</li>
 </ul>
-</li>
-</ul>
-<h2 id="四、数据库表"><a href="#四、数据库表" class="headerlink" title="四、数据库表"></a>四、数据库表</h2><ul>
-<li><p>创建表</p>
+<h2 id="四、数据库表"><a href="#四、数据库表" class="headerlink" title="四、数据库表"></a>四、数据库表</h2><p>创建表</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">create table [<span class="keyword">if</span> <span class="keyword">not</span> exists] 表名(</span><br><span class="line">   列名1  类型  [限制],</span><br><span class="line">   列名2  类型  [限制],</span><br><span class="line">   <span class="built_in">..</span>.</span><br><span class="line">   列名n  类型  [限制]  #最后一列没有逗号</span><br><span class="line">) [<span class="attribute">engine</span>=myisam | innodb][<span class="built_in"> default </span><span class="attribute">charset</span>=utf8];</span><br><span class="line"></span><br><span class="line">primary key 主键 不允许有重复值,不允许为空</span><br><span class="line">auto_increment 自增长，只对int型主键起作用</span><br><span class="line"></span><br><span class="line"><span class="comment">#复合主键</span></span><br><span class="line">mysql&gt; create table grade(</span><br><span class="line">    sid int ,</span><br><span class="line">    cid int,</span><br><span class="line">    score float,</span><br><span class="line">    primary key(sid,cid));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除表</p>
+<p>删除表</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看表结构</p>
+<p>查看表结构</p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc 表名<span class="comment">;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看建表语句</p>
+<p>查看建表语句</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改表</p>
+<p>修改表</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#修改字段类型</span><br><span class="line">   alter table 表名 modify 字段名 类型 [限制]</span><br><span class="line">#增加字段</span><br><span class="line">   alter table 表名  add [column] 字段名 类型 [限制];</span><br><span class="line">#删除字段</span><br><span class="line">   alter table 表名 drop [column] 字段名;</span><br><span class="line">修改字段名和类型</span><br><span class="line">   alter table 表名 change [column] 旧字段名 新字段名 类型 [限制];</span><br><span class="line">   </span><br><span class="line">#修改表名</span><br><span class="line">  alter table 表名 rename 新表名</span><br><span class="line">  alter table 表名 [engine=myisam] [<span class="keyword">default</span> charset=utf8];</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"> # 可以通过first、after指定插入位置</span><br><span class="line">  <span class="function">alter table student add sno <span class="title">varchar</span><span class="params">(<span class="number">3</span>)</span> <span class="keyword">not</span> null after sid</span>; <span class="comment">//在sid列后插入</span></span><br><span class="line">   alter table student add sid <span class="keyword">int</span> primary key auto_increment first;<span class="comment">//在第一列插入</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字段限制</p>
+<p>字段限制</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">primary key 不允许空值，唯一</span><br><span class="line"><span class="keyword">not</span>  <span class="literal">null</span> 非空</span><br><span class="line">unique 唯一</span><br><span class="line">default  缺省,默认值</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="五、数据类型"><a href="#五、数据类型" class="headerlink" title="五、数据类型"></a>五、数据类型</h2><ul>
-<li><p>数值型</p>
+<h2 id="五、数据类型"><a href="#五、数据类型" class="headerlink" title="五、数据类型"></a>五、数据类型</h2><p>数值型</p>
 <ul>
 <li>整型 能用整型尽量使用整型。包括int、smallint  tinyint</li>
 <li>int(3) 或者 tinyint(2) :3或者2不会去限制你所存储数据的长度 ，只有在配合zerofill 零填充的时候 才有意义</li>
 <li>浮点数  double 、decimal</li>
 </ul>
-<p>|      类型      |  大小   |        范围(有符号)         | 范围(无符号) |     用途      |<br>| :———-: | :—: | :——————–: | :—–: | :———: |<br>|   tinyint    |  1字节  |        -128-127        |  0,255  |    最小整数     |<br>|     int      |  4字节  | -2147483648-2147483647 |         |    大整数值     |<br>|  float(m,n)  | 4-8字节 |                        |         | 单精度浮点型(浮点数) |<br>| double(m,n)  |  8字节  |                        |         | 双精度浮点型(浮点数) |<br>| decimal(m,n) |  变长   |                        |         |  浮点数(更加精确)  |</p>
-</li>
-<li><p>字符型</p>
-<p>|      类型       |    大小     |     用途      |<br>| :———–: | :——-: | :———: |<br>|     char      |  0-255字节  |  存储定长的字符串   |<br>|    varchar    | 0-65535字节 |    变长字符串    |<br>|     text      | 0-65535字节 |    长文本数据    |<br>|     blob      | 0-65535字节 | 二进制的文本(不建议) |<br>| enum(‘w’,’m’) | 65535个成员  |     枚举      |<br>| set(‘w’,’m’)  |   64个成员   |     集合      |</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">范围(有符号)</th>
+<th style="text-align:center">范围(无符号)</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">tinyint</td>
+<td style="text-align:center">1字节</td>
+<td style="text-align:center">-128-127</td>
+<td style="text-align:center">0,255</td>
+<td style="text-align:center">最小整数</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">-2147483648-2147483647</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">大整数值</td>
+</tr>
+<tr>
+<td style="text-align:center">float(m,n)</td>
+<td style="text-align:center">4-8字节</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">单精度浮点型(浮点数)</td>
+</tr>
+<tr>
+<td style="text-align:center">double(m,n)</td>
+<td style="text-align:center">8字节</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">双精度浮点型(浮点数)</td>
+</tr>
+<tr>
+<td style="text-align:center">decimal(m,n)</td>
+<td style="text-align:center">变长</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">浮点数(更加精确)</td>
+</tr>
+</tbody>
+</table>
+<p>字符型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">大小</th>
+<th style="text-align:center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">0-255字节</td>
+<td style="text-align:center">存储定长的字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">varchar</td>
+<td style="text-align:center">0-65535字节</td>
+<td style="text-align:center">变长字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">text</td>
+<td style="text-align:center">0-65535字节</td>
+<td style="text-align:center">长文本数据</td>
+</tr>
+<tr>
+<td style="text-align:center">blob</td>
+<td style="text-align:center">0-65535字节</td>
+<td style="text-align:center">二进制的文本(不建议)</td>
+</tr>
+<tr>
+<td style="text-align:center">enum(‘w’,’m’)</td>
+<td style="text-align:center">65535个成员</td>
+<td style="text-align:center">枚举</td>
+</tr>
+<tr>
+<td style="text-align:center">set(‘w’,’m’)</td>
+<td style="text-align:center">64个成员</td>
+<td style="text-align:center">集合</td>
+</tr>
+</tbody>
+</table>
 <h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><h5 id="1-char-和-varchar-的区别"><a href="#1-char-和-varchar-的区别" class="headerlink" title="(1) char 和 varchar 的区别:"></a>(1) char 和 varchar 的区别:</h5><ul>
 <li>char的执行效率高于varchar ，varchar 相对于 char 节省存储空间</li>
 <li>如果使用char 传入的数据的长度 小于指定的长度的时候  存储的实际长度 不够的会拿空格来填充</li>
 <li>如果使用 varchar 传入的数据的长度 小于指定的长度的时候  存储的实际长度 为传进来的数据的长度</li>
 </ul>
-</li>
+<ul>
 <li><p>日期时间型</p>
 <p>|   类型   | 大小 |                  范围                   |        格式         |      用途      |<br>| :——: | :–: | :————————————-: | :—————–: | :————: |<br>|   date   |  3   |          1000-01-01/9999-12-31          |     YYYY-MM-DD      |     日期值     |<br>|   time   |  3   |          -838:59:59/838:59:59           |      HH:MM:SS       |     时间值     |<br>|   year   |  4   |                1901/2155                |        YYYY         |     年份值     |<br>| datetime |  8   | 1000-01-01 00:00:00/9999-12-31 23:59:59 | YYYY-MM-DD HH:MM:SS | 混合日期和时间 |<br>|          |      |          ‘2018-05-4 10:53:00’           |                     |                |</p>
 </li>
@@ -438,29 +501,21 @@
 <h2 id="七、数据查询"><a href="#七、数据查询" class="headerlink" title="七、数据查询"></a>七、数据查询</h2><p>基本结构： select  字段名列表   from 表名</p>
 <h3 id="1-基础查询"><a href="#1-基础查询" class="headerlink" title="1 基础查询"></a>1 基础查询</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select username,password  <span class="keyword">from</span> user;</span><br><span class="line">select usernname as 用户名, password as 密码  <span class="keyword">from</span><span class="built_in"> user; </span> #可以给字段起别名</span><br><span class="line">select *  <span class="keyword">from</span><span class="built_in"> user; </span>#查询所有字段，慎用，一般不建议使用，会导致无法优化sql语句</span><br><span class="line">select 2018,username,password  <span class="keyword">from</span><span class="built_in"> user; </span>#可以有常量，表达式</span><br><span class="line">select sname,2018-year(sbirthday) <span class="keyword">from</span> student; #year是mysql的内置函数</span><br><span class="line">select distinct username  <span class="keyword">from</span> <span class="built_in"> user; </span>#去除重复记录 distinct 针对查询结果去除重复记录，不针对字段</span><br></pre></td></tr></table></figure>
 <p>###2 条件查询（where） </p>
-<ul>
-<li><p>关系运算</p>
+<p>关系运算</p>
 <p>关系运算符：&gt; 、 &gt;=、  &lt;、  &lt;=、  =、!=、&lt;&gt;、 between and</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid &lt;10</span><br><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid != 10</span><br><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid between 10 <span class="keyword">and</span> 20</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>逻辑运算</p>
+<p>逻辑运算</p>
 <p>逻辑运算符：and 、or、not</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid &lt; 100 <span class="keyword">and</span> uid &gt; 20;</span><br><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where uid &gt; 100 <span class="keyword">or</span> uid &lt; 20;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>集合运算</p>
+<p>集合运算</p>
 <p>集合运算符：in、not in</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select username,password form<span class="built_in"> user </span>where uid <span class="keyword">in</span> (2,3,4)</span><br><span class="line">select username,password form<span class="built_in"> user </span>where uid <span class="keyword">not</span> <span class="keyword">in</span> (2,3,4)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判空</p>
+<p>判空</p>
 <p>判空运算：is  null、is not  null</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select username,password <span class="keyword">from</span><span class="built_in"> user </span>where username is <span class="literal">null</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字符串的模糊查询(like)</p>
+<p>字符串的模糊查询(like)</p>
 <p>通配符 _代表一个字符，%代表任意长度字符串</p>
-<pre><code>select * from user where username like &apos;王_&apos;;
-select * from user where username like &apos;王%&apos;;
-</code></pre></li>
-</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'王_'</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="keyword">like</span> <span class="string">'王%'</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="3-排序（order-by）"><a href="#3-排序（order-by）" class="headerlink" title="3. 排序（order by）"></a>3. 排序（order by）</h3><p> asc 升序(默认)、desc  降序、</p>
 <pre><code>select * from user order by age asc;
 select * from user order by age desc;
@@ -474,12 +529,16 @@ select * from php_user_history limit 4,2;
 实现分页必须的技术点
 limit (page-1)*num,num
 </code></pre><h3 id="5-集合函数"><a href="#5-集合函数" class="headerlink" title="5.集合函数"></a>5.集合函数</h3><ul>
-<li>count统计结果集中记录数</li>
-<li>max 最大值</li>
-<li>min  最小值</li>
-<li>avg   平均值，只针对数值类型统计</li>
-<li>sum 求和，只针对数值类型统计</li>
-<li><p>注意，集合函数不能直接使用在where后面的条件里，但可以在子查询中</p>
+<li><p>count统计结果集中记录数</p>
+</li>
+<li><p>max 最大值</p>
+</li>
+<li><p>min  最小值</p>
+</li>
+<li><p>avg   平均值，只针对数值类型统计</p>
+</li>
+<li><p>sum 求和，只针对数值类型统计</p>
+<p>注意，集合函数不能直接使用在where后面的条件里，但可以在子查询中</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">num</span> <span class="keyword">from</span> <span class="keyword">user</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(<span class="keyword">distinct</span> age) <span class="keyword">num</span> <span class="keyword">from</span> <span class="keyword">user</span>; //去除重复记录</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student <span class="keyword">where</span> sno = <span class="keyword">max</span>(sno);//错误</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -489,19 +548,14 @@ limit (page-1)*num,num
 <li>对分组进行过滤，可以使用having</li>
 </ul>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select uid, count(*) num <span class="keyword">from</span> php_forum<span class="built_in"> group </span>by uid;</span><br><span class="line">select uid,title, count(*) num <span class="keyword">from</span> forum<span class="built_in"> group </span>by uid having count(*) &gt;=2;</span><br><span class="line">having和where的区别：</span><br><span class="line">    where针对原始表进行过滤</span><br><span class="line">    having 是针对分组进行过滤</span><br></pre></td></tr></table></figure>
-<h3 id="查询小结"><a href="#查询小结" class="headerlink" title="查询小结"></a>查询小结</h3><ul>
-<li>整体顺序不能颠倒</li>
-<li><p>[]表示可选，可以有也可以没有</p>
-<p> select 字段<br>  from 表名<br>   [where 条件]<br>   [group by ]<br>   [having]<br>   [order by ]<br>   [limit]     </p>
-</li>
-</ul>
-<h2 id="八-字符集和存储引擎"><a href="#八-字符集和存储引擎" class="headerlink" title="八 字符集和存储引擎"></a>八 字符集和存储引擎</h2><ul>
-<li>修改字符集</li>
-</ul>
+<h3 id="查询小结"><a href="#查询小结" class="headerlink" title="查询小结"></a>查询小结</h3><p>整体顺序不能颠倒</p>
+<p>[]表示可选，可以有也可以没有</p>
+<p>select 字段<br> from 表名<br>  [where 条件]<br>  [group by ]<br>  [having]<br>  [order by ]<br>  [limit]     </p>
+<h2 id="八-字符集和存储引擎"><a href="#八-字符集和存储引擎" class="headerlink" title="八 字符集和存储引擎"></a>八 字符集和存储引擎</h2><p>修改字符集</p>
 <p>为了能够正常显示中文，必须把数据库的字符集设置为utf8.</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like <span class="emphasis">'character%'</span>;  #查看字符集</span><br><span class="line"><span class="code">+--------------------------+</span>----------------------------+</span><br><span class="line">| Variable<span class="emphasis">_name            | Value                      |</span></span><br><span class="line"><span class="emphasis">+--------------------------+----------------------------+</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_client     | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_connection | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_database   | latin1                     |需要修改</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_filesystem | binary                     |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_results    | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_server     | latin1                     |需要修改</span></span><br><span class="line"><span class="emphasis">| character_</span>set<span class="emphasis">_system     | utf8                       |</span></span><br><span class="line"><span class="emphasis">| character_</span>sets<span class="emphasis">_dir       | /usr/share/mysql/charsets/ |</span></span><br><span class="line"><span class="emphasis">+--------------------------+----------------------------+</span></span><br><span class="line"><span class="emphasis">8 rows in set (0.01 sec)</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">修改mysql的配置文件</span></span><br><span class="line"><span class="emphasis">cd /etc/mysql/mysql.conf.d</span></span><br><span class="line"><span class="emphasis">sudo cp mysql.cnf  mysql.cnf.bak</span></span><br><span class="line"><span class="emphasis">sudo vim mysql.cnf</span></span><br><span class="line"><span class="emphasis">在[mysqld]下增加一句：</span></span><br><span class="line"><span class="emphasis">character_</span>set<span class="emphasis">_server = utf8</span></span><br><span class="line"><span class="emphasis">保存并重启服务</span></span><br><span class="line"><span class="emphasis">sudo systemctl restart mysql.service  #重启服务</span></span><br></pre></td></tr></table></figure>
+<p>数据库引擎</p>
 <ul>
-<li>数据库引擎<ul>
 <li>常用的数据库引擎：myisam、innodb、archive、ndb、memory </li>
 <li>myisam和innodb的区别<ul>
 <li>myisam查询速度快，不支持事务、不支持外键、支持表锁</li>
@@ -509,12 +563,10 @@ limit (page-1)*num,num
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="https://addyzk.github.io/Random-img/13.jpg"></div>
+	<div id="current-post-cover" data-scr="../../../../img/cart_cover.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
@@ -529,12 +581,12 @@ limit (page-1)*num,num
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
 		
-			<a href="../../../08/29/网络编程/" title="网络编程" rel="prev">
+			<a href="../mysql高级/" title rel="prev">
 				&laquo;上一篇
 			</a>
 		
 		
-			<a href="../../12/redis/" title="redis" rel="next">
+			<a href="../../../../2018/08/29/网络编程/" title="网络编程" rel="next">
 				下一篇&raquo;
 			</a>
 			
@@ -555,27 +607,42 @@ limit (page-1)*num,num
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../2019/05/17/mysql高级/" title="mysql高级">
-								mysql高级			
+							<a class="relate-post-title" href="../../../05/17/sql优化/" title="mysql优化">
+								mysql优化			
 							</a>
 							<p class="relate-post-date">
 								<i class="fa fa-calendar"></i>
 								五月 17日, 2019				
 							</p>
 							<p class="relate-post-content">
-								#mysql数据库
-一、高级1.1 子查询
-子查询嵌入到其他查询语句中查询语句，子查询只能出现在from，where中
-子查询不要用select *,exists除外
+								mysql优化一、数据库设计原则数据库设计的三范式学生表(学号，姓名，生日，课程名，课程成绩，等级，学院，院长)
 
-12345678910select title from for...
+
+
+学号
+姓名
+生日
+课程号
+课程名
+成绩
+等级
+学院
+院长
+
+
+
+
+10001
+张三
+1998.1.1
+tp3021...
 							</p>
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="../../../../2019/05/17/mysql高级/" title="mysql高级">				
+							<a href="../../../05/17/sql优化/" title="mysql优化">				
 								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/15.jpg" alt="mysql高级">
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/16.jpg" alt="mysql优化">
 							</a>
 						</div>
 					</li>											
@@ -583,30 +650,7 @@ limit (page-1)*num,num
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../12/redis/" title="redis">
-								redis			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 12日, 2018				
-							</p>
-							<p class="relate-post-content">
-								redis教程：概述redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，即可以将数据持久化，并且他比memcached支持更多的数据结构(string,list列表[队列和...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../12/redis/" title="redis">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/10.jpg" alt="redis">
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../2019/05/17/my/" title="my">
+							<a class="relate-post-title" href="../../../05/17/my/" title="my">
 								my			
 							</a>
 							<p class="relate-post-date">
@@ -620,7 +664,7 @@ limit (page-1)*num,num
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="../../../../2019/05/17/my/" title="my">				
+							<a href="../../../05/17/my/" title="my">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/44.jpg" alt="my">
 							</a>
@@ -630,7 +674,7 @@ limit (page-1)*num,num
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../2019/05/16/hello-world/" title="Hello my friend!">
+							<a class="relate-post-title" href="../../../05/16/hello-world/" title="Hello my friend!">
 								Hello my friend!			
 							</a>
 							<p class="relate-post-date">
@@ -643,7 +687,7 @@ limit (page-1)*num,num
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="../../../../2019/05/16/hello-world/" title="Hello my friend!">				
+							<a href="../../../05/16/hello-world/" title="Hello my friend!">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/2.jpg" alt="Hello my friend!">
 							</a>
@@ -653,7 +697,7 @@ limit (page-1)*num,num
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../08/29/网络编程/" title="网络编程">
+							<a class="relate-post-title" href="../../../../2018/08/29/网络编程/" title="网络编程">
 								网络编程			
 							</a>
 							<p class="relate-post-date">
@@ -668,7 +712,7 @@ limit (page-1)*num,num
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="../../../08/29/网络编程/" title="网络编程">				
+							<a href="../../../../2018/08/29/网络编程/" title="网络编程">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/1.jpg" alt="网络编程">
 							</a>
@@ -678,7 +722,30 @@ limit (page-1)*num,num
 			
 					<li>
 						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../04/23/git/" title="Git!">
+							<a class="relate-post-title" href="../../../../2018/05/12/redis/" title="redis">
+								redis			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 12日, 2018				
+							</p>
+							<p class="relate-post-content">
+								redis教程：概述redis是一种支持分布式的nosql数据库,他的数据是保存在内存中，同时redis可以定时把内存数据同步到磁盘，即可以将数据持久化，并且他比memcached支持更多的数据结构(string,list列表[队列和...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2018/05/12/redis/" title="redis">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/10.jpg" alt="redis">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2018/04/23/git/" title="Git!">
 								Git!			
 							</a>
 							<p class="relate-post-date">
@@ -693,7 +760,7 @@ Git1.git简介1234- workspace 工作区- index 暂存区- repository 本地版�
 						</div>
 
 						<div class="relate-post-cover">
-							<a href="../../../04/23/git/" title="Git!">				
+							<a href="../../../../2018/04/23/git/" title="Git!">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/47.jpg" alt="Git!">
 							</a>
