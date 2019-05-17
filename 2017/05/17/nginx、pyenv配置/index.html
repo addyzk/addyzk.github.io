@@ -362,7 +362,7 @@
 		<h2 id="一、开机启动"><a href="#一、开机启动" class="headerlink" title="一、开机启动"></a>一、开机启动</h2><p>可以设置开机启动有两个地方：第一，在/etc/init.d目录下，可以将服务放到这个目录下。第二是在/etc/init.d下的rc.local，可以将需要开机启动的程序写入这个文件。可以使用sysv-rc-conf命令进行设置和查看开机启动服务。</p>
 <ul>
 <li><p>在/etc/init.d/下新建一个脚本test，格式如下：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#要执行的命令</span></span><br><span class="line"><span class="keyword">exit</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#要执行的命令</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>增加脚本可执行权限</p>
 </li>
@@ -508,6 +508,10 @@ server_name www.blog.com blog.com;
 				&laquo;上一篇
 			</a>
 		
+		
+			<a href="../../../04/27/项目部署/" title="项目部署" rel="next">
+				下一篇&raquo;
+			</a>
 			
 	</span>
 
@@ -615,6 +619,30 @@ Git1.git简介1234- workspace 工作区- index 暂存区- repository 本地版�
 							<a href="../../../../2018/04/23/git/" title="Git!">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/47.jpg" alt="Git!">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../04/27/项目部署/" title="项目部署">
+								项目部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 27日, 2017				
+							</p>
+							<p class="relate-post-content">
+								一、项目部署基本流程1234567891011- 虚拟环境- 数据库- 项目上传- 项目依赖- 数据迁移- Nginx- uWSGI- Nginx和uWSGI对接
+二、虚拟环境12345678910111213141516171819...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../04/27/项目部署/" title="项目部署">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/99.jpg" alt="项目部署">
 							</a>
 						</div>
 					</li>											
