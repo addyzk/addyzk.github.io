@@ -3,11 +3,11 @@
   <title>SorrisoYi</title>
   
   <subtitle>blog</subtitle>
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://112.74.175.33/blog/"/>
+  <link href="http://112.74.175.33/"/>
   <updated>2019-05-17T03:06:43.616Z</updated>
-  <id>http://112.74.175.33/blog/</id>
+  <id>http://112.74.175.33/</id>
   
   <author>
     <name>SorrisoYi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello my friend!</title>
-    <link href="http://112.74.175.33/blog/2019/05/16/hello-world/"/>
-    <id>http://112.74.175.33/blog/2019/05/16/hello-world/</id>
+    <link href="http://112.74.175.33/2019/05/16/hello-world/"/>
+    <id>http://112.74.175.33/2019/05/16/hello-world/</id>
     <published>2019-05-16T11:43:53.939Z</published>
     <updated>2019-05-17T03:06:43.616Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>网络编程</title>
-    <link href="http://112.74.175.33/blog/2018/08/29/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    <id>http://112.74.175.33/blog/2018/08/29/网络编程/</id>
+    <link href="http://112.74.175.33/2018/08/29/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    <id>http://112.74.175.33/2018/08/29/网络编程/</id>
     <published>2018-08-29T12:16:19.000Z</published>
     <updated>2019-05-17T02:04:16.376Z</updated>
     
@@ -56,17 +56,17 @@
     
     </summary>
     
-      <category term="web编程" scheme="http://112.74.175.33/blog/categories/web%E7%BC%96%E7%A8%8B/"/>
+      <category term="web编程" scheme="http://112.74.175.33/categories/web%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="web" scheme="http://112.74.175.33/blog/tags/web/"/>
+      <category term="web" scheme="http://112.74.175.33/tags/web/"/>
     
   </entry>
   
   <entry>
     <title>Hello Git!</title>
-    <link href="http://112.74.175.33/blog/2018/04/23/git/"/>
-    <id>http://112.74.175.33/blog/2018/04/23/git/</id>
+    <link href="http://112.74.175.33/2018/04/23/git/"/>
+    <id>http://112.74.175.33/2018/04/23/git/</id>
     <published>2018-04-23T12:11:14.000Z</published>
     <updated>2019-05-17T02:04:02.679Z</updated>
     
@@ -82,10 +82,10 @@
     
     </summary>
     
-      <category term="git" scheme="http://112.74.175.33/blog/categories/git/"/>
+      <category term="git" scheme="http://112.74.175.33/categories/git/"/>
     
     
-      <category term="Git" scheme="http://112.74.175.33/blog/tags/Git/"/>
+      <category term="Git" scheme="http://112.74.175.33/tags/Git/"/>
     
   </entry>
   
