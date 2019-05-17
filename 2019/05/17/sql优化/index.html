@@ -536,22 +536,13 @@
 </tbody>
 </table>
 <p>反范式设计</p>
-<ul>
-<li>如果考虑查询性能，应该尽量减少表的关联</li>
-<li>将经常查询的数据都放到一个表里，尽量少采用字典表</li>
-</ul>
-<h3 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h3><ul>
-<li><p>尽量选用长度小的类型</p>
-</li>
-<li><p>能选用整型，不要选用字符串</p>
-</li>
-<li><p>日期型能用date就不要使用datetime，不准用字符串存储日期</p>
-</li>
-<li><p>字段不要设置默认值null</p>
-</li>
-<li><p>主键一般无意义，用整型，自增</p>
-</li>
-</ul>
+<p>如果考虑查询性能，应该尽量减少表的关联</p>
+<p>将经常查询的数据都放到一个表里，尽量少采用字典表</p>
+<h3 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h3><p>尽量选用长度小的类型</p>
+<p>能选用整型，不要选用字符串</p>
+<p>日期型能用date就不要使用datetime，不准用字符串存储日期</p>
+<p>字段不要设置默认值null</p>
+<p>主键一般无意义，用整型，自增</p>
 <h2 id="二、sql语句的优化"><a href="#二、sql语句的优化" class="headerlink" title="二、sql语句的优化"></a>二、sql语句的优化</h2><p>1.开启慢查询</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在mysql下查询</span><br><span class="line">mysql&gt; show VARIABLES like <span class="emphasis">'%slow%'</span>;</span><br><span class="line"><span class="code">+---------------------------+</span>--------------------------------+</span><br><span class="line">| Variable<span class="emphasis">_name             | Value                          |</span></span><br><span class="line"><span class="emphasis">+---------------------------+--------------------------------+</span></span><br><span class="line"><span class="emphasis">| log_</span>slow<span class="emphasis">_admin_</span>statements | OFF                            |</span><br><span class="line">| log<span class="emphasis">_slow_</span>slave<span class="emphasis">_statements | OFF                            |</span></span><br><span class="line"><span class="emphasis">| slow_</span>launch<span class="emphasis">_time          | 2                              |慢查询的阈值，超过这个值认为是慢查询</span></span><br><span class="line"><span class="emphasis">| slow_</span>query<span class="emphasis">_log            | OFF                            |慢查询是关闭的</span></span><br><span class="line"><span class="emphasis">| slow_</span>query<span class="emphasis">_log_</span>file       | /var/lib/mysql/ubuntu-slow.log |慢查询日志文件路径</span><br><span class="line"><span class="code">+---------------------------+</span>--------------------------------+</span><br><span class="line">5 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"></span><br><span class="line">#在[mysqld]后面增加</span><br><span class="line">long<span class="emphasis">_query_</span>time = 1   #超过1秒钟的sql记录下来</span><br><span class="line">log-slow-queries = /var/mysql/log/log.txt  #慢查询的日志文件</span><br><span class="line">log-queries-no-using-indexes   #把没使用索引的查询记录下来</span><br></pre></td></tr></table></figure>
 <p>2 使用explain/desc分析sql语句</p>
