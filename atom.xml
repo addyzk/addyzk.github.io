@@ -5,9 +5,9 @@
   <subtitle>blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://addyzk.github.io/"/>
+  <link href="https://addyzk.github.io/SorrisoYi/"/>
   <updated>2019-05-17T06:51:54.290Z</updated>
-  <id>https://addyzk.github.io/</id>
+  <id>https://addyzk.github.io/SorrisoYi/</id>
   
   <author>
     <name>SorrisoYi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>my</title>
-    <link href="https://addyzk.github.io/2019/05/17/my/"/>
-    <id>https://addyzk.github.io/2019/05/17/my/</id>
+    <link href="https://addyzk.github.io/SorrisoYi/2019/05/17/my/"/>
+    <id>https://addyzk.github.io/SorrisoYi/2019/05/17/my/</id>
     <published>2019-05-17T06:50:15.000Z</published>
     <updated>2019-05-17T06:51:54.290Z</updated>
     
@@ -35,17 +35,17 @@
     
     </summary>
     
-      <category term="categories" scheme="https://addyzk.github.io/categories/categories/"/>
+      <category term="categories" scheme="https://addyzk.github.io/SorrisoYi/categories/categories/"/>
     
     
-      <category term="随笔" scheme="https://addyzk.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://addyzk.github.io/SorrisoYi/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>Hello my friend!</title>
-    <link href="https://addyzk.github.io/2019/05/16/hello-world/"/>
-    <id>https://addyzk.github.io/2019/05/16/hello-world/</id>
+    <link href="https://addyzk.github.io/SorrisoYi/2019/05/16/hello-world/"/>
+    <id>https://addyzk.github.io/SorrisoYi/2019/05/16/hello-world/</id>
     <published>2019-05-16T11:43:53.939Z</published>
     <updated>2019-05-17T03:06:43.616Z</updated>
     
@@ -65,8 +65,8 @@
   
   <entry>
     <title>网络编程</title>
-    <link href="https://addyzk.github.io/2018/08/29/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
-    <id>https://addyzk.github.io/2018/08/29/网络编程/</id>
+    <link href="https://addyzk.github.io/SorrisoYi/2018/08/29/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+    <id>https://addyzk.github.io/SorrisoYi/2018/08/29/网络编程/</id>
     <published>2018-08-29T12:16:19.000Z</published>
     <updated>2019-05-17T02:04:16.376Z</updated>
     
@@ -82,17 +82,17 @@
     
     </summary>
     
-      <category term="web编程" scheme="https://addyzk.github.io/categories/web%E7%BC%96%E7%A8%8B/"/>
+      <category term="web编程" scheme="https://addyzk.github.io/SorrisoYi/categories/web%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="web" scheme="https://addyzk.github.io/tags/web/"/>
+      <category term="web" scheme="https://addyzk.github.io/SorrisoYi/tags/web/"/>
     
   </entry>
   
   <entry>
     <title>Hello Git!</title>
-    <link href="https://addyzk.github.io/2018/04/23/git/"/>
-    <id>https://addyzk.github.io/2018/04/23/git/</id>
+    <link href="https://addyzk.github.io/SorrisoYi/2018/04/23/git/"/>
+    <id>https://addyzk.github.io/SorrisoYi/2018/04/23/git/</id>
     <published>2018-04-23T12:11:14.000Z</published>
     <updated>2019-05-17T02:04:02.679Z</updated>
     
@@ -108,10 +108,10 @@
     
     </summary>
     
-      <category term="git" scheme="https://addyzk.github.io/categories/git/"/>
+      <category term="git" scheme="https://addyzk.github.io/SorrisoYi/categories/git/"/>
     
     
-      <category term="Git" scheme="https://addyzk.github.io/tags/Git/"/>
+      <category term="Git" scheme="https://addyzk.github.io/SorrisoYi/tags/Git/"/>
     
   </entry>
   
