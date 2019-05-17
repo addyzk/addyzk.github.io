@@ -1,0 +1,1197 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      redis | SorrisoYi
+    
+  </title>
+  <meta name="author" content="SorrisoYi">
+  <meta name="keywords" content>
+  <meta name="description" content="blog">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="https://addyzk.github.io/Random-img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../../../css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="../../../../js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="../../../../js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode data-normal-src="../../../../index.html" data-random-max data-random-src="../../../../index.html">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="https://addyzk.github.io/Random-img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="../../../../index.html" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="../../../.././archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="../../../.././categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="../../../.././tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="../../../.././about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="../../../.././gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《redis》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="../../../../index.html" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="../../../.././archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="../../../.././categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="../../../.././tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="../../../.././about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="../../../.././gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/addyzk" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://weibo.com/u/2943549915" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="../../../../plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href itemprop="url">
+		redis
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href itemprop="url">
+		<time datetime="2018-05-12T13:10:35.000Z" itemprop="datePublished">
+	  		2018-05-12
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href itemprop="url">
+		<time datetime="2018-05-12T13:10:35.000Z" itemprop="dateUpdated">
+	  		2019-05-17
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="../../../../tags/数据库/" class=" ">
+			数据库
+		</a>
+	
+		
+		</span>
+		
+		
+
+	
+    <span class="leancloud_visitors" id="_visitors" data-url data-title="redis">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="_likes" data-url data-title="redis" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h1 id="redis教程："><a href="#redis教程：" class="headerlink" title="redis教程："></a>redis教程：</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>redis</code>是一种支持分布式的<code>nosql</code>数据库,他的数据是保存在内存中，同时<code>redis</code>可以定时把内存数据同步到磁盘，即可以将数据持久化，并且他比<code>memcached</code>支持更多的数据结构(<code>string</code>,<code>list列表[队列和栈]</code>,<code>set[集合]</code>,<code>sorted set[有序集合]</code>,<code>hash(hash表)</code>)。相关参考文档：<a href="http://redisdoc.com/index.html" target="_blank" rel="noopener">http://redisdoc.com/index.html</a></p>
+<h2 id="redis使用场景："><a href="#redis使用场景：" class="headerlink" title="redis使用场景："></a>redis使用场景：</h2><ol>
+<li>登录会话存储：存储在<code>redis</code>中，与<code>memcached</code>相比，数据不会丢失。</li>
+<li>排行版/计数器：比如一些秀场类的项目，经常会有一些前多少名的主播排名。还有一些文章阅读量的技术，或者新浪微博的点赞数等。</li>
+<li>作为消息队列：比如<code>celery</code>就是使用<code>redis</code>作为中间人。</li>
+<li>当前在线人数：还是之前的秀场例子，会显示当前系统有多少在线人数。</li>
+<li>一些常用的数据缓存：比如我们的<code>BBS</code>论坛，板块不会经常变化的，但是每次访问首页都要从<code>mysql</code>中获取，可以在<code>redis</code>中缓存起来，不用每次请求数据库。</li>
+<li>把前200篇文章缓存或者评论缓存：一般用户浏览网站，只会浏览前面一部分文章或者评论，那么可以把前面200篇文章和对应的评论缓存起来。用户访问超过的，就访问数据库，并且以后文章超过200篇，则把之前的文章删除。</li>
+<li>好友关系：微博的好友关系使用<code>redis</code>实现。</li>
+<li>发布和订阅功能：可以用来做聊天软件。</li>
+</ol>
+<h2 id="redis和memcached的比较："><a href="#redis和memcached的比较：" class="headerlink" title="redis和memcached的比较："></a><code>redis</code>和<code>memcached</code>的比较：</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>memcached</th>
+<th>redis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类型</td>
+<td>纯内存数据库</td>
+<td>内存磁盘同步数据库</td>
+</tr>
+<tr>
+<td>数据类型</td>
+<td>在定义value时就要固定数据类型</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>虚拟内存</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>过期策略</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>存储数据安全</td>
+<td>不支持</td>
+<td>可以将数据同步到dump.db中</td>
+</tr>
+<tr>
+<td>灾难恢复</td>
+<td>不支持</td>
+<td>可以将磁盘中的数据恢复到内存中</td>
+</tr>
+<tr>
+<td>分布式</td>
+<td>支持</td>
+<td>主从同步</td>
+</tr>
+<tr>
+<td>订阅与发布</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<h2 id="redis在ubuntu系统中的安装与启动"><a href="#redis在ubuntu系统中的安装与启动" class="headerlink" title="redis在ubuntu系统中的安装与启动"></a><code>redis</code>在<code>ubuntu</code>系统中的安装与启动</h2><ol>
+<li><p>安装：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install redis-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> purge --auto-<span class="builtin-name">remove</span> redis-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动：<code>redis</code>安装后，默认会自动启动，可以通过以下命令查看：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ps</span> aux|<span class="keyword">grep</span> redis</span><br></pre></td></tr></table></figure>
+<p>如果想自己手动启动，可以通过以下命令进行启动：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>redis-server start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>redis-server stop</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="redis在windows系统中的安装与启动："><a href="#redis在windows系统中的安装与启动：" class="headerlink" title="redis在windows系统中的安装与启动："></a>redis在windows系统中的安装与启动：</h2><ol>
+<li>下载：redis官方是不支持windows操作系统的。但是微软的开源部门将redis移植到了windows上。因此下载地址不是在redis官网上。而是在github上：<a href="https://github.com/MicrosoftArchive/redis/releases。" target="_blank" rel="noopener">https://github.com/MicrosoftArchive/redis/releases。</a></li>
+<li>安装：点击一顿下一步安装就可以了。</li>
+<li>运行：进入到<code>redis</code>安装所在的路径然后执行<code>redis-server.exe redis.windows.conf</code>就可以运行了。</li>
+<li>连接：<code>redis</code>和<code>mysql</code>以及<code>mongo</code>是一样的，都提供了一个客户端进行连接。输入命令<code>redis-cli</code>（前提是redis安装路径已经加入到环境变量中了）就可以连接到<code>redis</code>服务器了。</li>
+</ol>
+<h2 id="其他机器访问本机redis服务器："><a href="#其他机器访问本机redis服务器：" class="headerlink" title="其他机器访问本机redis服务器："></a>其他机器访问本机redis服务器：</h2><p>想要让其他机器访问本机的redis服务器。那么要修改redis.conf的配置文件，将bind改成<code>bind [自己的ip地址或者0.0.0.0]</code>，其他机器才能访问。<br><strong>注意：bind绑定的是本机网卡的ip地址，而不是想让其他机器连接的ip地址。如果有多块网卡，那么可以绑定多个网卡的ip地址。如果绑定到额是0.0.0.0，那么意味着其他机器可以通过本机所有的ip地址进行访问。</strong></p>
+<h2 id="对redis的操作"><a href="#对redis的操作" class="headerlink" title="对redis的操作"></a>对<code>redis</code>的操作</h2><p>对<code>redis</code>的操作可以用两种方式，第一种方式采用<code>redis-cli</code>，第二种方式采用编程语言，比如<code>Python</code>、<code>PHP</code>和<code>JAVA</code>等。</p>
+<ol>
+<li><p>使用<code>redis-cli</code>对<code>redis</code>进行字符串操作：</p>
+</li>
+<li><p>启动<code>redis</code>：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>redis-server start</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接上</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="keyword">server</span></span><br></pre></td></tr></table></figure>
+<p>：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="string">[ip]</span> -p <span class="string">[端口]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> key <span class="comment">value</span></span><br><span class="line">如：</span><br><span class="line"><span class="keyword">set</span> <span class="comment">username xiaotuo</span></span><br></pre></td></tr></table></figure>
+<p>将字符串值<code>value</code>关联到<code>key</code>。如果<code>key</code>已经持有其他值，<code>set</code>命令就覆写旧值，无视其类型。并且默认的过期时间是永久，即永远不会过期。</p>
+</li>
+<li><p>删除：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">del</span> key</span><br><span class="line">如：</span><br><span class="line"><span class="selector-tag">del</span> username</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置过期时间：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expire key <span class="keyword">timeout</span>(单位为秒)</span><br></pre></td></tr></table></figure>
+<p>也可以在设置值的时候，一同指定过期时间：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">key</span> <span class="keyword">value</span> EX <span class="keyword">timeout</span></span><br><span class="line">或：</span><br><span class="line">setex <span class="keyword">key</span> <span class="keyword">timeout</span> <span class="keyword">value</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看过期时间：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ttl <span class="built_in">key</span></span><br><span class="line">如：</span><br><span class="line">ttl username</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前<code>redis</code>中的所有<code>key</code>：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">keys</span> *</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表操作：</p>
+<ul>
+<li><p>在列表左边添加元素：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lpush <span class="built_in">key</span> <span class="built_in">value</span></span><br></pre></td></tr></table></figure>
+<p>将值<code>value</code>插入到列表<code>key</code>的表头。如果<code>key</code>不存在，一个空列表会被创建并执行<code>lpush</code>操作。当<code>key</code>存在但不是列表类型时，将返回一个错误。</p>
+</li>
+<li><p>在列表右边添加元素：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpush <span class="built_in">key</span> <span class="built_in">value</span></span><br></pre></td></tr></table></figure>
+<p>将值value插入到列表key的表尾。如果key不存在，一个空列表会被创建并执行RPUSH操作。当key存在但不是列表类型时，返回一个错误。</p>
+</li>
+<li><p>查看列表中的元素：</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lrange</span> key start stop</span><br></pre></td></tr></table></figure>
+<p>返回列表<code>key</code>中指定区间内的元素，区间以偏移量<code>start</code>和<code>stop</code>指定,如果要左边的第一个到最后的一个<code>lrange key 0 -1</code>。</p>
+</li>
+<li><p>移除列表中的元素：</p>
+<ul>
+<li><p>移除并返回列表<code>key</code>的头元素：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">lpop key</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除并返回列表的尾元素：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rpop key</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除并返回列表<code>key</code>的中间元素：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrem <span class="built_in">key</span> <span class="built_in">count</span> <span class="built_in">value</span></span><br></pre></td></tr></table></figure>
+<p>将删除<code>key</code>这个列表中，<code>count</code>个值为<code>value</code>的元素。</p>
+</li>
+</ul>
+</li>
+<li><p>指定返回第几个元素：</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">lindex</span> key index</span><br></pre></td></tr></table></figure>
+<p>将返回<code>key</code>这个列表中，索引为<code>index</code>的这个元素。</p>
+</li>
+<li><p>获取列表中的元素个数：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">llen </span>key</span><br><span class="line">如：</span><br><span class="line"><span class="keyword">llen </span>languages</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除指定的元素：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lrem <span class="built_in">key</span> <span class="built_in">count</span> <span class="built_in">value</span></span><br><span class="line">如：</span><br><span class="line">lrem languages <span class="number">0</span> php</span><br></pre></td></tr></table></figure>
+<p>根据参数 count 的值，移除列表中与参数 value 相等的元素。<code>count</code>的值可以是以下几种：</p>
+<ul>
+<li>count &gt; 0：从表头开始向表尾搜索，移除与<code>value</code>相等的元素，数量为<code>count</code>。</li>
+<li>count &lt; 0：从表尾开始向表头搜索，移除与 <code>value</code>相等的元素，数量为<code>count</code>的绝对值。</li>
+<li>count = 0：移除表中所有与<code>value</code> 相等的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>set</code>集合的操作：</p>
+<ul>
+<li><p>添加元素：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">sadd</span></span> <span class="keyword">set</span> value1 <span class="comment">value2....</span></span><br><span class="line">如：</span><br><span class="line">sadd <span class="comment">team xiaotuo datuo</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看元素：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">smembers <span class="keyword">set</span></span><br><span class="line">如：</span><br><span class="line">smembers <span class="comment">team</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除元素：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">srem</span></span> <span class="keyword">set</span> member...</span><br><span class="line">如：</span><br><span class="line">srem <span class="comment">team xiaotuo datuo</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看集合中的元素个数：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scard <span class="keyword">set</span></span><br><span class="line">如：</span><br><span class="line">scard <span class="comment">team1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取多个集合的交集：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sinter <span class="keyword">set</span>1 <span class="keyword">set</span>2</span><br><span class="line">如：</span><br><span class="line">sinter team1 team2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取多个集合的并集：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sunion <span class="keyword">set</span>1 <span class="keyword">set</span>2</span><br><span class="line">如：</span><br><span class="line">sunion team1 team2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取多个集合的差集：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sdiff set<span class="number">1</span> set<span class="number">2</span></span><br><span class="line">如：</span><br><span class="line">sdiff tea<span class="name">m1</span> tea<span class="name">m2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>hash</code>哈希操作：</p>
+<ul>
+<li><p>添加一个新值：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">hset</span> key <span class="meta">field</span> value</span><br><span class="line">如：</span><br><span class="line"><span class="symbol">hset</span> website <span class="keyword">baidu </span><span class="keyword">baidu.com</span></span><br></pre></td></tr></table></figure>
+<p>将哈希表<code>key</code>中的域<code>field</code>的值设为<code>value</code>。<br>如果<code>key</code>不存在，一个新的哈希表被创建并进行 <code>HSET</code>操作。如果域 <code>field</code>已经存在于哈希表中，旧值将被覆盖。</p>
+</li>
+<li><p>获取哈希中的<code>field</code>对应的值：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">hget</span> key <span class="meta">field</span></span><br><span class="line">如：</span><br><span class="line"><span class="symbol">hget</span> website <span class="keyword">baidu</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除<code>field</code>中的某个<code>field</code>：</p>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">hdel</span> <span class="built_in">key</span> field</span><br><span class="line">如：</span><br><span class="line"><span class="built_in">hdel</span> website baidu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取某个哈希中所有的<code>field</code>和<code>value</code>：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hgetall <span class="built_in">key</span></span><br><span class="line">如：</span><br><span class="line">hgetall website</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取某个哈希中所有的<code>field</code>：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hkeys <span class="built_in">key</span></span><br><span class="line">如：</span><br><span class="line">hkeys website</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取某个哈希中所有的值：</p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hvals <span class="built_in">key</span></span><br><span class="line">如：</span><br><span class="line">hvals website</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>判断哈希中是否存在某个<code>field</code>：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">hexists</span> key <span class="meta">field</span></span><br><span class="line">如：</span><br><span class="line"><span class="symbol">hexists</span> website <span class="keyword">baidu</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取哈希中总共的键值对：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">hlen</span> <span class="meta">field</span></span><br><span class="line">如：</span><br><span class="line"><span class="symbol">hlen</span> website</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>事务操作：Redis事务可以一次执行多个命令，事务具有以下特征：</p>
+<ul>
+<li><p>隔离操作：事务中的所有命令都会序列化、按顺序地执行，不会被其他命令打扰。</p>
+</li>
+<li><p>原子操作：事务中的命令要么全部被执行，要么全部都不执行。</p>
+</li>
+<li><p>开启一个事务：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">multi</span></span><br></pre></td></tr></table></figure>
+<p>以后执行的所有命令，都在这个事务中执行的。</p>
+</li>
+<li><p>执行事务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span></span><br></pre></td></tr></table></figure>
+<p>会将在<code>multi</code>和<code>exec</code>中的操作一并提交。</p>
+</li>
+<li><p>取消事务：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">discard</span></span><br></pre></td></tr></table></figure>
+<p>会将<code>multi</code>后的所有命令取消。</p>
+</li>
+<li><p>监视一个或者多个<code>key</code>：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">watch</span></span> key...</span><br></pre></td></tr></table></figure>
+<p>监视一个(或多个)key，如果在事务执行之前这个(或这些) key被其他命令所改动，那么事务将被打断。</p>
+</li>
+<li><p>取消所有<code>key</code>的监视：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">unwatch</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>发布/订阅操作：</p>
+<ul>
+<li><p>给某个频道发布消息：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">publish channel <span class="keyword">message</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>订阅某个频道的消息：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">subscribe </span>channel</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="https://addyzk.github.io/Random-img/10.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			<a href="../../../08/29/网络编程/" title="网络编程" rel="prev">
+				&laquo;上一篇
+			</a>
+		
+		
+			<a href="../../../04/23/git/" title="Git!" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2019/05/17/my/" title="my">
+								my			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 17日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1你在哪里
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2019/05/17/my/" title="my">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/44.jpg" alt="my">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2019/05/16/hello-world/" title="Hello my friend!">
+								Hello my friend!			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 16日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Welcome to my blog ! This is your very first post. Check documentation for more info. If you get any problems when us...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2019/05/16/hello-world/" title="Hello my friend!">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/2.jpg" alt="Hello my friend!">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../08/29/网络编程/" title="网络编程">
+								网络编程			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								八月 29日, 2018				
+							</p>
+							<p class="relate-post-content">
+								计算机之间的通信，三次握手，四次挥手！TCP/UDP协议！
+17 网络编程一、网络编程1.网络编程基础
+计算机网络：把分布在不同区域的计算机通过专门的设备使用通信线路连接起来，从而会形成一个庞大的网络系统，不同的计算机之间就可以进行信...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../08/29/网络编程/" title="网络编程">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/1.jpg" alt="网络编程">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../04/23/git/" title="Git!">
+								Git!			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 23日, 2018				
+							</p>
+							<p class="relate-post-content">
+								Git 的基本认识，常用命令，以及使用流程，冲突管理分支管理等。
+Git1.git简介1234- workspace 工作区- index 暂存区- repository 本地版本库- remote 远程仓库
+2.常用git命令1所有...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../04/23/git/" title="Git!">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/47.jpg" alt="Git!">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2017/05/17/nginx、pyenv配置/" title="nginx、pyenv配置">
+								nginx、pyenv配置			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 17日, 2017				
+							</p>
+							<p class="relate-post-content">
+								一、开机启动可以设置开机启动有两个地方：第一，在/etc/init.d目录下，可以将服务放到这个目录下。第二是在/etc/init.d下的rc.local，可以将需要开机启动的程序写入这个文件。可以使用sysv-rc-conf命令进行...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2017/05/17/nginx、pyenv配置/" title="nginx、pyenv配置">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/21.jpg" alt="nginx、pyenv配置">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2017/04/27/项目部署/" title="项目部署">
+								项目部署			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								四月 27日, 2017				
+							</p>
+							<p class="relate-post-content">
+								一、项目部署基本流程1234567891011- 虚拟环境- 数据库- 项目上传- 项目依赖- 数据迁移- Nginx- uWSGI- Nginx和uWSGI对接
+二、虚拟环境12345678910111213141516171819...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2017/04/27/项目部署/" title="项目部署">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/99.jpg" alt="项目部署">
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+
+			<!-- addThis share -->
+			<!-- www.addthis.com/dashboard -->
+
+	<div class="addthis_inline_share_toolbox">
+	</div>
+
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-xxx" async="async"></script>
+
+
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'bdanoXQN5zgeVyspG5e9RF7o-gzGzoHsz',
+            appkey = 'RVVmwDan5FhjuwkKxenjOGSE';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="../../../../plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="../../../../plugin/fancybox/jquery.fancybox.css">
+<script src="../../../../plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/addyzk" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="https://weibo.com/u/2943549915" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="../../../../atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by SorrisoYi. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="../../../../plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup">
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+
+   
+	<div id="topN">
+		<div class="topN-title" data-title="热门文章"></div> 
+	</div>
+	
+    <script>
+        var appid = 'bdanoXQN5zgeVyspG5e9RF7o-gzGzoHsz',
+            appkey = 'RVVmwDan5FhjuwkKxenjOGSE',
+            limitCount = 10;
+        if( $('#topN').length ){
+            AV.initialize(appid, appkey);
+            var Counter = AV.Object.extend("Counter");  
+            topNPost(Counter, limitCount);
+        }
+    </script>
+   
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../../../plugin/search/ziploader.js"></script>
+<script src="../../../../plugin/search/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/SorrisiYi/search.zip',
+		version_Path = '/SorrisiYi/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+<!-- love effect -->
+
+	<script src="../../../../plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<script src="../../../../plugin/vibrant/vibrant.js"></script>
+<script src="../../../../plugin/chinese/chinese.js"></script>
+<script src="../../../../plugin/imgLazyLoader/yall.min.js"></script>
+<script src="../../../../plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="../../../../plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="../../../../js/resizediv.js"></script>
+<script src="../../../../js/main.js"></script>
+	</body>	
+</html>
