@@ -376,7 +376,7 @@
 <li>缩进 4 个空格, 禁止空格与 Tab 混用</li>
 <li>行长 80 字符: 防止单行逻辑过于复杂</li>
 </ul>
-<p>import</p>
+<p><code>import</code></p>
 <ul>
 <li>不要使用 <code>from xxx import *</code></li>
 <li>顺序<ol>
@@ -436,33 +436,23 @@
 <li><strong>大的功能用小函数之间灵活组合来完成</strong></li>
 <li>避免编写庞大的程序, <strong>“大” 意味着体积庞大, 逻辑复杂甚至混乱</strong></li>
 </ul>
-<ul>
-<li><p>自定义的变量名、函数名不要与标准库中的名字冲突 </p>
-</li>
-<li><p>pip install pycodestyle pylint flake8 autopep8</p>
-</li>
-</ul>
+<p>自定义的变量名、函数名不要与标准库中的名字冲突 </p>
+<p><code>pip install pycodestyle pylint flake8 autopep8</code></p>
 <h4 id="2-和-的用法"><a href="#2-和-的用法" class="headerlink" title="2. * 和 ** 的用法"></a>2. * 和 ** 的用法</h4><p>函数定义时接收不定长参数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <p>参数传递</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(x, y,*,z, a, b)</span>:</span>      <span class="comment"># 此处的*  表示后面的参数必须都是关键字参数</span></span><br><span class="line">    print(x) </span><br><span class="line">    print(y)</span><br><span class="line">    print(z)</span><br><span class="line">    print(a)</span><br><span class="line">    print(b)</span><br><span class="line">lst = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">dic = &#123;<span class="string">'a'</span>: <span class="number">22</span>, <span class="string">'b'</span>: <span class="number">77</span>&#125;</span><br><span class="line">foo(*lst, **dic)       <span class="comment"># *列表  **字典   解包</span></span><br></pre></td></tr></table></figure>
 <p>import * 语法</p>
-<ul>
-<li><p>文件 xyz.py</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">__all__ = (<span class="string">'a'</span>, <span class="string">'e'</span>, <span class="string">'_d'</span>)     <span class="comment"># 指明导包的时候只能倒入  a,e,_d</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">123</span></span><br><span class="line">_b = <span class="number">456</span>                      <span class="comment"># 加了下划线不会被导入</span></span><br><span class="line">c = <span class="string">'asdfghjkl'</span></span><br><span class="line">_d = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">e = (<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>文件 abc.py</p>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xyz <span class="keyword">import</span> *      <span class="comment"># 只导入了 a,e,_d</span></span><br><span class="line">print(a)</span><br><span class="line">print(_b)</span><br><span class="line">print(c)</span><br><span class="line">print(_d)</span><br><span class="line">print(e)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<p>文件 xyz.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">__all__ = (<span class="string">'a'</span>, <span class="string">'e'</span>, <span class="string">'_d'</span>)     <span class="comment"># 指明导包的时候只能倒入  a,e,_d</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">123</span></span><br><span class="line">_b = <span class="number">456</span>                      <span class="comment"># 加了下划线不会被导入</span></span><br><span class="line">c = <span class="string">'asdfghjkl'</span></span><br><span class="line">_d = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">e = (<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>文件abc.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xyz <span class="keyword">import</span> *      <span class="comment"># 只导入了 a,e,_d</span></span><br><span class="line">print(a)</span><br><span class="line">print(_b)</span><br><span class="line">print(c)</span><br><span class="line">print(_d)</span><br><span class="line">print(e)</span><br></pre></td></tr></table></figure>
 <h4 id="3-Python-的赋值和引用"><a href="#3-Python-的赋值和引用" class="headerlink" title="3. Python 的赋值和引用"></a>3. Python 的赋值和引用</h4><p><code>==, is</code>: <code>==</code> 判断的是值, <code>is</code> 判断的是内存地址 (即对象的id)</p>
 <p>小整数对象: [-5, 256]            # 性能优化   小整数对象内存地址都是一样的，is返回True，大整数  is  返回 false</p>
 <p><code>copy, deepcopy</code> 的区别</p>
 <p><code>copy</code>: 只拷贝表层元素</p>
 <p><code>deepcopy</code>: 在内存中重新创建所有子元素</p>
-<ul>
-<li><img src="copy.png" alt="copy and deepcopy"></li>
-</ul>
+<p><img src="copy.png" alt="copy and deepcopy"></p>
 <p>练习1: 说出执行结果</p>
 <p><img src="default_list.png" alt="default list"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">extendList</span><span class="params">(val, lst=[])</span>:</span></span><br><span class="line">    lst.append(val)</span><br><span class="line">    <span class="keyword">return</span> lst</span><br><span class="line"></span><br><span class="line">list1 = extendList(<span class="number">10</span>)      <span class="comment"># [10]</span></span><br><span class="line">list2 = extendList(<span class="number">123</span>, [])     <span class="comment"># [123]      # []  覆盖了</span></span><br><span class="line">list3 = extendList(<span class="string">'a'</span>)         <span class="comment"># [10,'a']</span></span><br></pre></td></tr></table></figure>
@@ -767,7 +757,7 @@
 	
 	</div>
 	
-	<div id="current-post-cover" data-scr="https://addyzk.github.io/Random-img/25.jpg"></div>
+	<div id="current-post-cover" data-scr="https://addyzk.github.io/Random-img/28.jpg"></div>
 
 	<!-- relate post, comment...-->
 	<div class="investment-container">
