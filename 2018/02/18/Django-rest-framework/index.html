@@ -364,11 +364,11 @@
 <h2 id="三、DRF基础"><a href="#三、DRF基础" class="headerlink" title="三、DRF基础"></a>三、DRF基础</h2><p>文档<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">https:</span><span class="comment">//www.django-rest-framework.org/</span></span><br><span class="line"><span class="symbol">https:</span><span class="comment">//q1mi.github.io/Django-REST-framework-documentation/</span></span><br></pre></td></tr></table></figure></p>
 <p>模型定义<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Book</span>(<span class="title">models</span>.<span class="type">Model</span>):</span></span><br><span class="line"><span class="class">    name = models.<span class="type">CharField</span>(<span class="title">max_length</span>=100)</span></span><br><span class="line"><span class="class">    price = models.<span class="type">IntegerField</span>()</span></span><br></pre></td></tr></table></figure></p>
 <p>序列化<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> app3.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="comment"># serializers.Serializer 原始序列化，手动序列化</span></span><br><span class="line"><span class="comment"># serializers.ModelSerializer 序列化模型(最常用)</span></span><br><span class="line"><span class="comment"># serializers.HyperlinkedModelSerializer 序列化模型，添加一个超链接,需要在路由后面加name='~Detail'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookSerializer</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = Book</span><br><span class="line">        fields = (<span class="string">'name'</span>, <span class="string">'price'</span>, <span class="string">'id'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>类视图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- <span class="class"><span class="keyword">class</span> <span class="title">BookAPIView</span><span class="params">(APIView)</span>:</span></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span>     <span class="comment"># 添加数据</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 客户端的请求的数据 request.data</span></span><br><span class="line">  	   		serializer = BookSerializer(data=request.data)</span><br><span class="line">  	      <span class="keyword">if</span> serializer.is_valid():</span><br><span class="line">  	           serializer.save()</span><br><span class="line">  	           <span class="keyword">return</span> Response(serializer.data, status=status.HTTP_201_CREATED)</span><br><span class="line"></span><br><span class="line">	        <span class="keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)</span><br><span class="line"></span><br><span class="line">	    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span>     <span class="comment"># 获取所有数据</span></span><br><span class="line">	        books = Book.objects.all()</span><br><span class="line">	        serializer = BookSerializer(books, many=<span class="literal">True</span>)</span><br><span class="line">	        <span class="keyword">return</span> Response(serializer.data)</span><br></pre></td></tr></table></figure></p>
+<p>类视图<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- <span class="class"><span class="keyword">class</span> <span class="title">BookAPIView</span>(<span class="title">APIView</span>):</span></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(<span class="keyword">self</span>, request)</span></span>:     <span class="comment"># 添加数据</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 客户端的请求的数据 request.data</span></span><br><span class="line">  	   		serializer = BookSerializer(data=request.data)</span><br><span class="line">  	      <span class="keyword">if</span> serializer.is_valid()<span class="symbol">:</span></span><br><span class="line">  	           serializer.save()</span><br><span class="line">  	           <span class="keyword">return</span> Response(serializer.data, status=status.HTTP_201_CREATED)</span><br><span class="line"></span><br><span class="line">	        <span class="keyword">return</span> Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)</span><br><span class="line"></span><br><span class="line">	    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(<span class="keyword">self</span>, request)</span></span>:     <span class="comment"># 获取所有数据</span></span><br><span class="line">	        books = Book.objects.all()</span><br><span class="line">	        serializer = BookSerializer(books, many=True)</span><br><span class="line">	        <span class="keyword">return</span> Response(serializer.data)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>APIView其实是继承Django中View!</p>
 </blockquote>
-<p>路由<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^book/$'</span>, views.BookAPIView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>路由<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^book/$'</span>, views.BookAPIView.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <h2 id="四、基于mixins"><a href="#四、基于mixins" class="headerlink" title="四、基于mixins"></a>四、基于mixins</h2><p>概述<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">CreateModelMixin:</span> 创建模型</span><br><span class="line"><span class="symbol">ListModelMixin:</span> 获取结果集</span><br><span class="line"><span class="symbol">RetrieveModelMixin:</span> 检索</span><br><span class="line"><span class="symbol">UpdateModelMixin:</span> 更新</span><br><span class="line"><span class="symbol">DestroyModelMixin:</span> 删除</span><br></pre></td></tr></table></figure></p>
 <p>基本操作<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- <span class="class"><span class="keyword">class</span> <span class="title">NewsAPIView</span>(</span></span><br><span class="line">      mixins.CreateModelMixin,    <span class="comment"># 继承后，就有创建的方法</span></span><br><span class="line">      mixins.ListModelMixin,      <span class="comment"># 继承后，就有获取列表方法</span></span><br><span class="line">      generics.GenericAPIView     <span class="comment"># 继承后，就是类视图</span></span><br><span class="line">  ):    <span class="comment"># 添加新闻、获取新闻列表</span></span><br><span class="line">      queryset = News.objects.all()</span><br><span class="line">      serializer_class = NewsSerializer</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(<span class="keyword">self</span>, request, *args, **kwargs)</span></span>:   <span class="comment"># 添加数据</span></span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">self</span>.create(request, *args, **kwargs)</span><br><span class="line"></span><br><span class="line">	    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(<span class="keyword">self</span>, requeset, *args, **kwargs)</span></span>:   <span class="comment"># 获取列表</span></span><br><span class="line">	        <span class="keyword">return</span> <span class="keyword">self</span>.list(requeset, *args, **kwargs)</span><br></pre></td></tr></table></figure></p>
 <h2 id="五、基于generic"><a href="#五、基于generic" class="headerlink" title="五、基于generic"></a>五、基于generic</h2><p>概述<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">CreateAPIView:</span> 创建模型 的类视图</span><br><span class="line"><span class="symbol">ListAPIView:</span> 获取结果 的类视图</span><br><span class="line"><span class="symbol">RetrieveAPIView:</span> 检索 的类视图</span><br><span class="line"><span class="symbol">DestroyAPIView:</span> 删除 的类视图</span><br><span class="line"><span class="symbol">UpdateAPIView:</span> 更新 的类视图</span><br><span class="line"><span class="symbol">ListCreateAPIView:</span> 创建、获取结果集 的类视图</span><br><span class="line"><span class="symbol">RetrieveUpdateAPIView:</span> 检索、更新 的类视图</span><br><span class="line"><span class="symbol">RetrieveDestroyAPIView:</span> 检索、删除 的类视图</span><br><span class="line"><span class="symbol">RetrieveUpdateDestroyAPIView:</span> 检索、更新、删除 的类视图</span><br></pre></td></tr></table></figure></p>
@@ -416,6 +416,46 @@
 <div class="relate-post">
 	
 		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="../../../../2019/05/28/linux/" title="linux">
+								linux			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 28日, 2019				
+							</p>
+							<p class="relate-post-content">
+								一、课程简介
+linux服务器配置及常用命令
+
+开发软件配置及服务环境的搭建
+
+软件的安装和配置
+
+mysql数据库使用、monDB使用、redius的使用
+
+git的使用
+
+html/css
+
+
+课程学习方式
+表达训练     
+
+...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="../../../../2019/05/28/linux/" title="linux">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/88.jpg" alt="linux">
+							</a>
+						</div>
+					</li>											
+			
 			
 					<li>
 						<div class="relate-post-text">
@@ -658,29 +698,6 @@ Git1.git简介1234- workspace 工作区- index 暂存区- repository 本地版�
 					</li>											
 			
 			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="../../../../2017/05/17/nginx、pyenv配置/" title="nginx、pyenv配置">
-								nginx、pyenv配置			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 17日, 2017				
-							</p>
-							<p class="relate-post-content">
-								一、开机启动可以设置开机启动有两个地方：第一，在/etc/init.d目录下，可以将服务放到这个目录下。第二是在/etc/init.d下的rc.local，可以将需要开机启动的程序写入这个文件。可以使用sysv-rc-conf命令进行...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="../../../../2017/05/17/nginx、pyenv配置/" title="nginx、pyenv配置">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://addyzk.github.io/Random-img/21.jpg" alt="nginx、pyenv配置">
-							</a>
-						</div>
-					</li>											
-			
-			
 		</ul>
 	
 </div>	
@@ -751,7 +768,7 @@ Git1.git简介1234- workspace 工作区- index 暂存区- repository 本地版�
 		//id: decodeURI(window.location.pathname),
 		//id: (window.location.pathname).split("/").pop().substring(0, 49),
 		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-		repo: 'Annie-Gitalk',
+		repo: 'annie-gitalk',
 		owner: 'SorrisoYi',
 		admin: 'SorrisoYi',
 		distractionFreeMode: 'true',
